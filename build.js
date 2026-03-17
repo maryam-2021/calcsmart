@@ -5,6 +5,7 @@ const path = require('path');
 const SITE_NAME = 'CalcSmart';
 const SITE_TAGLINE = 'Free Online Calculators for Everything';
 const SITE_URL = 'https://calcsmart.com';
+const GOOGLE_VERIFICATION = 'vlq0h42e0Vv2XxJQoYxQ7EQVFrY3AMs9PqJ5OA1WpT8';
 const OUT_DIR = __dirname;
 
 // ── All 50 calculators ────────────────────────────────────────
@@ -2370,6 +2371,7 @@ function buildHome() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <title>Dashboard | 50 PLUS FINANCIAL CALCULATORS</title>
 <meta name="description" content="${SITE_TAGLINE}. Over 50 free calculators for finance, health, math, time, and unit conversions.">
 <meta property="og:title" content="Dashboard | 50 PLUS FINANCIAL CALCULATORS">
@@ -2590,6 +2592,7 @@ function buildCategory(cat) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <title>${cat.name} – Free Online Tools | ${SITE_NAME}</title>
 <meta name="description" content="${cat.desc} Choose from ${cat.tools.length} free ${cat.name.toLowerCase()} on ${SITE_NAME}.">
 <meta property="og:title" content="${cat.name} – ${SITE_NAME}">
@@ -2649,6 +2652,7 @@ function buildTool(tool, cat) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <title>${tool.name} – Free Online Calculator | ${SITE_NAME}</title>
 <meta name="description" content="${tool.desc} Use our free ${tool.name.toLowerCase()} online — instant results, no sign-up.">
 <meta property="og:title" content="${tool.name} – Free Online Calculator">
@@ -2759,6 +2763,7 @@ function buildGuides() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <title>Guides & Articles | ${SITE_NAME}</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -2785,6 +2790,7 @@ function buildArticle(art) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <title>${art.title} | ${SITE_NAME}</title>
 <link rel="stylesheet" href="styles.css">
 </head>
