@@ -11,6 +11,32 @@ const OUT_DIR = __dirname;
 // ── All 50 calculators ────────────────────────────────────────
 const categories = [
   {
+    name: 'Relationship Tools',
+    slug: 'relationship-calculators',
+    icon: '❤️',
+    desc: 'Explore compatibility and fun insights into your relationships.',
+    tools: [
+      { slug: 'love-calculator', name: 'Love Calculator', icon: '❤️', desc: 'Calculate compatibility between two people based on names.' },
+      { slug: 'friendship-compatibility', name: 'Friendship Tester', icon: '🤝', desc: 'Find out how compatible you and your best friend are.' },
+      { slug: 'zodiac-matcher', name: 'Zodiac Matcher', icon: '♈', desc: 'Check astrological compatibility between signs.' },
+      { slug: 'numerology-calculator', name: 'Numerology Life Path', icon: '🔢', desc: 'Find your Life Path Number and personality traits.' },
+      { slug: 'lucky-numbers', name: 'Lucky Number Generator', icon: '🍀', desc: 'Generate lucky numbers based on your name.' },
+    ]
+  },
+  {
+    name: 'Lifestyle & Planning',
+    slug: 'lifestyle-calculators',
+    icon: '✨',
+    desc: 'Practical tools for life milestones and personal growth.',
+    tools: [
+      { slug: 'wedding-budget', name: 'Wedding Budget Planner', icon: '💍', desc: 'Estimate and track your wedding expenses.' },
+      { slug: 'pet-age-calculator', name: 'Pet Age Converter', icon: '🐾', desc: 'Convert dog or cat years into human years.' },
+      { slug: 'baby-name-meaning', name: 'Baby Name Meanings', icon: '👶', desc: 'Discover meanings and origins of names.' },
+      { slug: 'habit-streak', name: 'Habit Goal Tracker', icon: '📅', desc: 'Calculate progress toward your lifestyle goals.' },
+      { slug: 'life-expectancy', name: 'Life Expectancy (Fun)', icon: '⏳', desc: 'Fun longevity predictor based on lifestyle habits.' },
+    ]
+  },
+  {
     name: 'Finance Calculators',
     slug: 'finance-calculators',
     icon: '💰',
@@ -101,32 +127,6 @@ const categories = [
       { slug: 'data-storage-converter', name: 'Data Storage Converter',    icon: '💾', desc: 'Convert between bytes, kilobytes, megabytes, gigabytes, terabytes.' },
       { slug: 'number-base-converter',  name: 'Number Base Converter',     icon: '🔟', desc: 'Convert numbers between binary, octal, decimal, and hexadecimal.' },
       { slug: 'fuel-economy-converter', name: 'Fuel Economy Converter',    icon: '⛽', desc: 'Convert between MPG, L/100km, and km/L fuel economy ratings.' },
-    ]
-  },
-  {
-    name: 'Relationship Tools',
-    slug: 'relationship-calculators',
-    icon: '❤️',
-    desc: 'Explore compatibility and fun insights into your relationships.',
-    tools: [
-      { slug: 'love-calculator', name: 'Love Calculator', icon: '❤️', desc: 'Calculate compatibility between two people based on names.' },
-      { slug: 'friendship-compatibility', name: 'Friendship Tester', icon: '🤝', desc: 'Find out how compatible you and your best friend are.' },
-      { slug: 'zodiac-matcher', name: 'Zodiac Matcher', icon: '♈', desc: 'Check astrological compatibility between signs.' },
-      { slug: 'numerology-calculator', name: 'Numerology Life Path', icon: '🔢', desc: 'Find your Life Path Number and personality traits.' },
-      { slug: 'lucky-numbers', name: 'Lucky Number Generator', icon: '🍀', desc: 'Generate lucky numbers based on your name.' },
-    ]
-  },
-  {
-    name: 'Lifestyle & Planning',
-    slug: 'lifestyle-calculators',
-    icon: '✨',
-    desc: 'Practical tools for life milestones and personal growth.',
-    tools: [
-      { slug: 'wedding-budget', name: 'Wedding Budget Planner', icon: '💍', desc: 'Estimate and track your wedding expenses.' },
-      { slug: 'pet-age-calculator', name: 'Pet Age Converter', icon: '🐾', desc: 'Convert dog or cat years into human years.' },
-      { slug: 'baby-name-meaning', name: 'Baby Name Meanings', icon: '👶', desc: 'Discover meanings and origins of names.' },
-      { slug: 'habit-streak', name: 'Habit Goal Tracker', icon: '📅', desc: 'Calculate progress toward your lifestyle goals.' },
-      { slug: 'life-expectancy', name: 'Life Expectancy (Fun)', icon: '⏳', desc: 'Fun longevity predictor based on lifestyle habits.' },
     ]
   },
 ];
@@ -2759,19 +2759,19 @@ ${headerHTML()}
     <!-- Right Sidebar Grid -->
     <div class="side-grid">
       <!-- Card 1 -->
-      <a href="social-security-calculator.html" class="side-card card-chart">
-        <h3 class="sc-title">Social Security<br>Planning</h3>
-        <div class="sc-vis"></div>
-        <p class="sc-desc">Estimate your future Social Security benefits and tax impact.</p>
-        <span class="card-link">Optimize Now &rarr;</span>
+      <a href="love-calculator.html" class="side-card card-icon">
+        <div class="sc-icon">❤️</div>
+        <h3 class="sc-title">Relationship<br>Compatibility</h3>
+        <p class="sc-desc">Explore name-based compatibility and zodiac matches for couples.</p>
+        <span class="card-link">Check Now &rarr;</span>
       </a>
       
       <!-- Card 2 -->
-      <a href="investment-calculator.html" class="side-card card-icon">
-        <div class="sc-icon">💹</div>
-        <h3 class="sc-title">Portfolio Growth<br>Forecaster</h3>
-        <p class="sc-desc">See how your investments grow after-tax over 10, 20, or 30 years.</p>
-        <span class="card-link">View Growth &rarr;</span>
+      <a href="lifestyle-calculators.html" class="side-card card-icon">
+        <div class="sc-icon">✨</div>
+        <h3 class="sc-title">Lifestyle & Goal<br>Planning</h3>
+        <p class="sc-desc">Practical tools for wedding budgets, pet aging, and habit tracking.</p>
+        <span class="card-link">Explore Lifestyle &rarr;</span>
       </a>
       
       <!-- Card 3 -->
@@ -2783,11 +2783,11 @@ ${headerHTML()}
       </a>
       
       <!-- Card 4 -->
-      <a href="tax-calculator.html" class="side-card card-icon">
-        <div class="sc-icon">💼</div>
-        <h3 class="sc-title">Income & Tax<br>Optimization</h3>
-        <p class="sc-desc">Analyze your bracket and maximize your tax-free retirement contributions.</p>
-        <span class="card-link">Analyze &rarr;</span>
+      <a href="investment-calculator.html" class="side-card card-icon">
+        <div class="sc-icon">💹</div>
+        <h3 class="sc-title">Portfolio Growth<br>Forecaster</h3>
+        <p class="sc-desc">See how your investments grow after-tax over 10, 20, or 30 years.</p>
+        <span class="card-link">View Growth &rarr;</span>
       </a>
     </div>
   </div>
