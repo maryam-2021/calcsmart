@@ -194,20 +194,12 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
   const btn=document.getElementById('hamburgerBtn');
   const nav=document.getElementById('navLinks');
   if(!btn||!nav)return;
-  btn.addEventListener('click',()=>{
-    nav.style.display=nav.style.display==='flex'?'none':'flex';
-    nav.style.flexDirection='column';
-    nav.style.position='absolute';
-    nav.style.top='70px';
-    nav.style.right='16px';
-    nav.style.background='rgba(21,24,33,0.95)';
-    nav.style.backdropFilter='blur(20px)';
-    nav.style.padding='16px 24px';
-    nav.style.borderRadius='12px';
-    nav.style.border='1px solid rgba(255,255,255,0.08)';
-    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
-    nav.style.zIndex='200';
-    nav.style.gap='12px';
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    nav.classList.toggle('active');
+  });
+  document.addEventListener('click',()=>{
+    nav.classList.remove('active');
   });
 })();
 // Search filter
