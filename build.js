@@ -2811,6 +2811,39 @@ ${footerHTML()}
   console.log('✓ article-' + art.slug + '.html');
 }
 
+// ── Generate SITEMAP ──────────────────────────────────────────
+function generateSitemap() {
+  const urls = [];
+  const now = new Date().toISOString().split('T')[0];
+
+  urls.push({ loc: `${SITE_URL}/index.html`, priority: '1.0' });
+  urls.push({ loc: `${SITE_URL}/guides.html`, priority: '0.9' });
+
+  articles.forEach(art => {
+    urls.push({ loc: `${SITE_URL}/article-${art.slug}.html`, priority: '0.8' });
+  });
+
+  categories.forEach(cat => {
+    urls.push({ loc: `${SITE_URL}/${cat.slug}.html`, priority: '0.8' });
+    cat.tools.forEach(tool => {
+      urls.push({ loc: `${SITE_URL}/${tool.slug}.html`, priority: '0.8' });
+    });
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+  fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), xml.trim(), 'utf8');
+  console.log('✓ sitemap.xml');
+}
+
 // ── Run builder ───────────────────────────────────────────────
 console.log('\n🔨 Building CalcSmart site...\n');
 buildHome();
@@ -2820,5 +2853,7 @@ categories.forEach(cat => {
   buildCategory(cat);
   cat.tools.forEach(tool => buildTool(tool, cat));
 });
+generateSitemap();
+
 const total = 1 + 1 + articles.length + categories.length + categories.reduce((s,c)=>s+c.tools.length,0);
-console.log(`\n✅ Done! Generated ${total} HTML files in ${OUT_DIR}\n`);
+console.log(`\n✅ Done! Generated ${total + 1} files (inc. sitemap) in ${OUT_DIR}\n`);
