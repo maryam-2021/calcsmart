@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="vlq0h42e0Vv2XxJQoYxQ7EQVFrY3AMs9PqJ5OA1WpT8">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Water Intake Calculator – Free Online Calculator | CalcSmart</title>
-<meta name="description" content="Calculate how much water you should drink each day. Use our free water intake calculator online — instant results, no sign-up.">
-<meta property="og:title" content="Water Intake Calculator – Free Online Calculator">
-<meta property="og:description" content="Calculate how much water you should drink each day.">
+<title>Discount Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Find your savings and final price after discounts. Use our free discount calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Discount Calculator – Free Online Calculator">
+<meta property="og:description" content="Find your savings and final price after discounts.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://radiant-cendol-ef5153.netlify.app/water-intake-calculator.html">
-<link rel="canonical" href="https://radiant-cendol-ef5153.netlify.app/water-intake-calculator.html">
+<meta property="og:url" content="https://radiant-cendol-ef5153.netlify.app/discount-calculator.html">
+<link rel="canonical" href="https://radiant-cendol-ef5153.netlify.app/discount-calculator.html">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -55,26 +55,26 @@
     <div class="breadcrumb">
       <a href="index.html">Home</a>
       <span>›</span>
-      <a href="health-calculators.html">Health Calculators</a>
+      <a href="business-marketing-tools.html">Business & Marketing</a>
       <span>›</span>
-      <span class="current">Water Intake Calculator</span>
+      <span class="current">Discount Calculator</span>
     </div>
 
     <div class="calc-header">
-      <h1>💧 Water Intake Calculator</h1>
-      <p>Calculate how much water you should drink each day.</p>
+      <h1>🏷️ Discount Calculator</h1>
+      <p>Find your savings and final price after discounts.</p>
     </div>
 
     <div class="calc-widget">
       <div class="calc-form"><div class="form-group">
-      <label for="weight">Weight (kg)</label>
-      <input type="number" id="weight" placeholder="70" >
+      <label for="dc_p">Original Price ($)</label>
+      <input type="number" id="dc_p" placeholder="50.00" >
     </div><div class="form-group">
-      <label for="age">Age</label>
-      <input type="number" id="age" placeholder="25" >
-    </div><div class="form-group"><label for="activity">Activity Level</label><select id="activity" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="low">Low</option><option value="moderate">Moderate</option><option value="high">High</option></select></div></div>
+      <label for="dc_d">Discount Percentage (%)</label>
+      <input type="number" id="dc_d" placeholder="20" >
+    </div></div>
       <div class="calc-actions">
-        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate Intake</button>
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ 🏷️ Calculate Savings</button>
         <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
       </div>
       <div class="calc-result" id="calcResult">
@@ -95,20 +95,16 @@
     </div>
 
     <div class="content-section">
-      <h2>What is a Water Intake Calculator?</h2>
-      <p>Determine your optimal daily water intake based on your body weight and activity level.</p>
-      <div class="formula-box"><code>Base = 0.033L per kg of Body Weight</code></div>
+      <h2>What is a Discount Calculator?</h2>
+      <p>Instantly calculate your savings and the final price during a sale.</p>
+      <div class="formula-box"><code>Final = Original - (Original * (Discount / 100))</code></div>
     </div>
 
     
     <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
-      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Water Intake Calculator</h2>
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Discount Calculator</h2>
       <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
-        
-      <p>Hydration is the simplest way to improve your health. Every system in your body, from your kidneys to your brain, relies on adequate water to function.</p>
-      <h4>The Signs of Dehydration</h4>
-      <p>Thirst is actually a late sign of dehydration. Other early indicators include daytime fatigue, headaches, and dark-colored urine. By hitting your calculated goal, you can improve your energy levels and skin health.</p>
-    
+        <p>Don't be fooled by high percentages! Always check the final dollar amount you are paying to stay within your budget.</p>
       </div>
     </div>
     
@@ -117,18 +113,22 @@
       <h2>Example</h2>
       <div class="example-box">
         <div class="example-title">📌 Example Calculation</div>
-        <p>70kg person with Moderate activity ≈ 2.8 Liters/day</p>
+        <p>A $100 shirt with 30% off will cost you exactly $70.</p>
       </div>
     </div>
 
     <div class="faq-section">
       <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
       
+    <div class="faq-item">
+      <button class="faq-question">Can I add sales tax?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Calculate the discount first, then add sales tax to the final price.</div></div>
+    </div>
     </div>
 
     <div class="related-section">
       <h2>Related Calculators</h2>
-      <div class="related-grid"><a href="bmi-calculator.html" class="related-link"><span class="r-icon">⚖️</span>BMI Calculator</a><a href="calorie-calculator.html" class="related-link"><span class="r-icon">🔥</span>Calorie Calculator</a><a href="bmr-calculator.html" class="related-link"><span class="r-icon">🫀</span>BMR Calculator</a><a href="body-fat-calculator.html" class="related-link"><span class="r-icon">💪</span>Body Fat Calculator</a><a href="ideal-weight-calculator.html" class="related-link"><span class="r-icon">🎯</span>Ideal Weight Calculator</a><a href="pregnancy-calculator.html" class="related-link"><span class="r-icon">🤰</span>Pregnancy Calculator</a></div>
+      <div class="related-grid"><a href="profit-margin-calculator.html" class="related-link"><span class="r-icon">📈</span>Profit Margin Calculator</a><a href="sales-tax-calculator.html" class="related-link"><span class="r-icon">🧾</span>Sales Tax Calculator</a><a href="markup-calculator.html" class="related-link"><span class="r-icon">🔼</span>Price Markup Calculator</a><a href="break-even-calculator.html" class="related-link"><span class="r-icon">⚖️</span>Break-Even Point Calculator</a><a href="roas-calculator.html" class="related-link"><span class="r-icon">🎯</span>ROAS Ad Spend Calculator</a></div>
     </div>
   </div>
 </div>
@@ -246,17 +246,12 @@ function resetCalc(){
   if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
 }
 function calculate(){
-  const w = parseFloat(v('weight')), act = document.getElementById('activity').value;
-  if(!w) return alert('Please enter weight');
-  let liters = w * 0.033;
-  if(act === 'Moderate') liters += 0.5;
-  if(act === 'High') liters += 1.0;
-  showResult('Daily Water Goal', liters.toFixed(2)+' Liters', [
-    'Approx '+(liters*4.22).toFixed(1)+' cups (8oz)',
-    'Stay hydrated for better focus and energy',
-    'Drink more in hot weather'
-  ]);
-}
+      const p = parseFloat(v('dc_p')), d = parseFloat(v('dc_d'));
+      if(isNaN(p) || isNaN(d)) return alert('Enter values');
+      const off = p * (d / 100);
+      const final = p - off;
+      showResult('Final Price', '$' + final.toFixed(2), ['Saved: $' + off.toFixed(2)]);
+    }
 </script>
 </body>
 </html>

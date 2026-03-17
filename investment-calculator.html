@@ -87,6 +87,16 @@
         <div class="result-label" id="resultLabel"></div>
         <div class="result-value" id="resultValue"></div>
         <div class="result-details" id="resultDetails"></div>
+        
+        <!-- Social Share Viral Section -->
+        <div class="viral-share" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px; display: none;" id="shareBox">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">🚀 SHARE YOUR RESULT:</p>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="shareResult('whatsapp')" style="background: #25d366; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">WhatsApp</button>
+            <button onclick="shareResult('facebook')" style="background: #1877f2; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Facebook</button>
+            <button onclick="shareResult('copy')" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Copy Link</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -229,12 +239,23 @@ function showResult(label, value, details){
   document.getElementById('resultLabel').textContent = label;
   document.getElementById('resultValue').textContent = value;
   document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
-  const r = document.getElementById('calcResult');
-  r.classList.add('visible');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
 }
 function resetCalc(){
-  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
   document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
 }
 function calculate(){
   const P = parseFloat(v('principal')), PMT = parseFloat(v('contrib'));

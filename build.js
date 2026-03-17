@@ -129,6 +129,20 @@ const categories = [
       { slug: 'fuel-economy-converter', name: 'Fuel Economy Converter',    icon: '⛽', desc: 'Convert between MPG, L/100km, and km/L fuel economy ratings.' },
     ]
   },
+  {
+    name: 'Business & Marketing',
+    slug: 'business-marketing-tools',
+    icon: '🚀',
+    desc: 'Professional tools for ROI, profit margins, and sales growth.',
+    tools: [
+      { slug: 'profit-margin-calculator', name: 'Profit Margin Calculator', icon: '📈', desc: 'Calculate gross profit margin and markup percentages.' },
+      { slug: 'sales-tax-calculator', name: 'Sales Tax Calculator', icon: '🧾', desc: 'Calculate sales tax and total price for any region.' },
+      { slug: 'discount-calculator', name: 'Discount Calculator', icon: '🏷️', desc: 'Find your savings and final price after discounts.' },
+      { slug: 'markup-calculator', name: 'Price Markup Calculator', icon: '🔼', desc: 'Determine the selling price based on cost and target markup.' },
+      { slug: 'break-even-calculator', name: 'Break-Even Point Calculator', icon: '⚖️', desc: 'Find the sales volume needed to cover your costs.' },
+      { slug: 'roas-calculator', name: 'ROAS Ad Spend Calculator', icon: '🎯', desc: 'Measure the effectiveness of your advertising campaigns.' },
+    ]
+  },
 ];
 
 // ── Educational Articles ──────────────────────────────────────
@@ -2486,6 +2500,124 @@ function getFactors(n){
     example: 'If you want to hit a 30-day streak and you\'ve done 10 days, find out when you\'ll celebrate!',
     faqs: [['Why 21 days?', 'Dr. Maxwell Maltz observed that it takes about 21 days for people to adjust to a major life change.']]
   },
+  'profit-margin-calculator': {
+    fields: [
+      { id: 'pm_c', label: 'Cost ($)', placeholder: '10.00', type: 'number' },
+      { id: 'pm_r', label: 'Revenue ($)', placeholder: '25.00', type: 'number' },
+    ],
+    btn: '📈 Calculate Margin',
+    js: `function calculate(){
+      const c = parseFloat(v('pm_c')), r = parseFloat(v('pm_r'));
+      if(isNaN(c) || isNaN(r)) return alert('Enter values');
+      const gp = r - c;
+      const margin = (gp / r) * 100;
+      const markup = (gp / c) * 100;
+      showResult('Gross Margin', margin.toFixed(2) + '%', [
+        'Gross Profit: $' + gp.toFixed(2),
+        'Markup: ' + markup.toFixed(2) + '%'
+      ]);
+    }`,
+    formula: 'Margin = ((Revenue - Cost) / Revenue) * 100',
+    what: 'Quickly find your profit percentage and markup to ensure your business remains profitable.',
+    blog: '<p>A healthy profit margin varies by industry, but understanding the difference between margin and markup is step one for any entrepreneur.</p>',
+    example: 'If an item costs $50 and you sell it for $100, your margin is 50%.',
+    faqs: [['What is a good margin?', 'Retail usually averages 50%, while software can be 80% or higher.']]
+  },
+  'sales-tax-calculator': {
+    fields: [
+      { id: 'st_p', label: 'Price ($)', placeholder: '100.00', type: 'number' },
+      { id: 'st_r', label: 'Tax Rate (%)', placeholder: '7.5', type: 'number' },
+    ],
+    btn: '🧾 Calculate Tax',
+    js: `function calculate(){
+      const p = parseFloat(v('st_p')), r = parseFloat(v('st_r'));
+      if(isNaN(p) || isNaN(r)) return alert('Enter values');
+      const tax = p * (r / 100);
+      const total = p + tax;
+      showResult('Total Price', '$' + total.toFixed(2), ['Sales Tax: $' + tax.toFixed(2)]);
+    }`,
+    formula: 'Tax = Price * (Rate / 100)',
+    what: 'Calculate the total cost including sales tax for any purchase.',
+    blog: '<p>Sales tax rates differ significantly between states and countries. This tool helps you plan your final budget.</p>',
+    example: 'A $1,000 laptop with 8% tax costs $1,080 total.',
+    faqs: [['Is this for VAT too?', 'Yes, VAT (Value Added Tax) works on the same percentage principle.']]
+  },
+  'roas-calculator': {
+    fields: [
+      { id: 'ro_r', label: 'Ad Revenue ($)', placeholder: '5000', type: 'number' },
+      { id: 'ro_s', label: 'Ad Spend ($)', placeholder: '1000', type: 'number' },
+    ],
+    btn: '🎯 Calculate ROAS',
+    js: `function calculate(){
+      const r = parseFloat(v('ro_r')), s = parseFloat(v('ro_s'));
+      if(isNaN(r) || isNaN(s)) return alert('Enter values');
+      const roas = r / s;
+      showResult('ROAS', roas.toFixed(2) + 'x', ['Efficiency: ' + (roas * 100).toFixed(0) + '%']);
+    }`,
+    formula: 'ROAS = Total Revenue / Total Ad Spend',
+    what: 'Return on Ad Spend (ROAS) helps you see if your marketing is profitable.',
+    blog: '<p>Most businesses aim for a ROAS of 4x or higher to cover operations and product costs.</p>',
+    example: 'Spend $1,000 on Facebook ads to make $4,000 revenue? That\'s a 4x ROAS.',
+    faqs: [['What\'s a "Good" ROAS?', 'Depends on your margins. A high-margin product might be okay at 2x, whereas low-margin toys need 10x.']]
+  },
+  'discount-calculator': {
+    fields: [
+      { id: 'dc_p', label: 'Original Price ($)', placeholder: '50.00', type: 'number' },
+      { id: 'dc_d', label: 'Discount Percentage (%)', placeholder: '20', type: 'number' },
+    ],
+    btn: '🏷️ Calculate Savings',
+    js: `function calculate(){
+      const p = parseFloat(v('dc_p')), d = parseFloat(v('dc_d'));
+      if(isNaN(p) || isNaN(d)) return alert('Enter values');
+      const off = p * (d / 100);
+      const final = p - off;
+      showResult('Final Price', '$' + final.toFixed(2), ['Saved: $' + off.toFixed(2)]);
+    }`,
+    formula: 'Final = Original - (Original * (Discount / 100))',
+    what: 'Instantly calculate your savings and the final price during a sale.',
+    blog: '<p>Don\'t be fooled by high percentages! Always check the final dollar amount you are paying to stay within your budget.</p>',
+    example: 'A $100 shirt with 30% off will cost you exactly $70.',
+    faqs: [['Can I add sales tax?', 'Calculate the discount first, then add sales tax to the final price.']]
+  },
+  'markup-calculator': {
+    fields: [
+      { id: 'mu_c', label: 'Cost Price ($)', placeholder: '40.00', type: 'number' },
+      { id: 'mu_m', label: 'Markup Percentage (%)', placeholder: '25', type: 'number' },
+    ],
+    btn: '🔼 Calculate Selling Price',
+    js: `function calculate(){
+      const c = parseFloat(v('mu_c')), m = parseFloat(v('mu_m'));
+      if(isNaN(c) || isNaN(m)) return alert('Enter values');
+      const markup = c * (m / 100);
+      const sell = c + markup;
+      showResult('Selling Price', '$' + sell.toFixed(2), ['Gross Profit: $' + markup.toFixed(2)]);
+    }`,
+    formula: 'Selling Price = Cost + (Cost * (Markup / 100))',
+    what: 'Determine the right retail price for your products based on your desired markup.',
+    blog: '<p>Markup is different from margin. Markup is added to the cost, while margin is calculated from the final revenue.</p>',
+    example: 'If a product costs $80 and you want a 50% markup, the selling price is $120.',
+    faqs: [['Is markup same as profit?', 'Markup leads to gross profit, but remember to deduct overheads to find net profit.']]
+  },
+  'break-even-calculator': {
+    fields: [
+      { id: 'be_f', label: 'Fixed Costs ($)', placeholder: '2000', type: 'number' },
+      { id: 'be_v', label: 'Variable Cost per Unit ($)', placeholder: '10', type: 'number' },
+      { id: 'be_p', label: 'Sale Price per Unit ($)', placeholder: '50', type: 'number' },
+    ],
+    btn: '⚖️ Find Break-Even Point',
+    js: `function calculate(){
+      const f = parseFloat(v('be_f')), v_val = parseFloat(v('be_v')), p = parseFloat(v('be_p'));
+      if(isNaN(f) || isNaN(v_val) || isNaN(p)) return alert('Enter values');
+      if(p <= v_val) return alert('Price must be higher than variable cost!');
+      const units = f / (p - v_val);
+      showResult('Units Needed', Math.ceil(units) + ' units', ['Target Sales: $' + (Math.ceil(units) * p).toFixed(2)]);
+    }`,
+    formula: 'Units = Fixed Costs / (Price - Variable Costs)',
+    what: 'Calculate exactly how many units you need to sell to cover all your business costs.',
+    blog: '<p>The break-even point is the zero-profit milestone. Once you pass this, every extra unit sold adds directly to your profit.</p>',
+    example: 'If fixed costs are $1,000 and you make $20 per unit, you need 50 units to break even.',
+    faqs: [['Should I include research costs?', 'Yes, any cost that doesn\'t change with unit volume should go into Fixed Costs.']]
+  },
 };
 
 // ── Default logic for any tool not explicitly defined ─────────
@@ -2981,6 +3113,16 @@ ${headerHTML()}
         <div class="result-label" id="resultLabel"></div>
         <div class="result-value" id="resultValue"></div>
         <div class="result-details" id="resultDetails"></div>
+        
+        <!-- Social Share Viral Section -->
+        <div class="viral-share" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 20px; display: none;" id="shareBox">
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">🚀 SHARE YOUR RESULT:</p>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="shareResult('whatsapp')" style="background: #25d366; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">WhatsApp</button>
+            <button onclick="shareResult('facebook')" style="background: #1877f2; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Facebook</button>
+            <button onclick="shareResult('copy')" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Copy Link</button>
+          </div>
+        </div>
       </div>`}
     </div>
 
@@ -3025,12 +3167,23 @@ function showResult(label, value, details){
   document.getElementById('resultLabel').textContent = label;
   document.getElementById('resultValue').textContent = value;
   document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
-  const r = document.getElementById('calcResult');
-  r.classList.add('visible');
+  document.getElementById('calcResult').classList.add('visible');
+  const sb = document.getElementById('shareBox');
+  if(sb) sb.style.display = 'block';
+}
+function shareResult(type) {
+  const url = window.location.href;
+  const text = "Check out my results on this " + document.querySelector('h1').innerText + "!";
+  if(type === 'whatsapp') window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + " " + url));
+  if(type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
+  if(type === 'copy') {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  }
 }
 function resetCalc(){
-  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.querySelectorAll('.calc-form input, .calc-form select').forEach(i=>{if(i.type!=='date')i.value='';});
   document.getElementById('calcResult').classList.remove('visible');
+  if(document.getElementById('shareBox')) document.getElementById('shareBox').style.display='none';
 }
 ${logic.js}
 </script>
