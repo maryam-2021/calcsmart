@@ -2230,10 +2230,10 @@ function headerHTML() {
   <div class="site-wrapper">
     <div class="navbar-inner">
       <a href="index.html" class="logo-container">
-        <div class="logo-icon">🧮</div>
+        <img src="logo.png" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
         <div class="logo-text">
-          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
-          <p>Your future, calculated.</p>
+          <h1 style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</h1>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
         </div>
       </a>
       
@@ -2372,6 +2372,7 @@ function buildHome() {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Dashboard | 50 PLUS FINANCIAL CALCULATORS</title>
 <meta name="description" content="${SITE_TAGLINE}. Over 50 free calculators for finance, health, math, time, and unit conversions.">
 <meta property="og:title" content="Dashboard | 50 PLUS FINANCIAL CALCULATORS">
@@ -2593,6 +2594,7 @@ function buildCategory(cat) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>${cat.name} – Free Online Tools | ${SITE_NAME}</title>
 <meta name="description" content="${cat.desc} Choose from ${cat.tools.length} free ${cat.name.toLowerCase()} on ${SITE_NAME}.">
 <meta property="og:title" content="${cat.name} – ${SITE_NAME}">
@@ -2653,6 +2655,7 @@ function buildTool(tool, cat) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>${tool.name} – Free Online Calculator | ${SITE_NAME}</title>
 <meta name="description" content="${tool.desc} Use our free ${tool.name.toLowerCase()} online — instant results, no sign-up.">
 <meta property="og:title" content="${tool.name} – Free Online Calculator">
@@ -2764,6 +2767,7 @@ function buildGuides() {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Guides & Articles | ${SITE_NAME}</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -2791,6 +2795,7 @@ function buildArticle(art) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>${art.title} | ${SITE_NAME}</title>
 <link rel="stylesheet" href="styles.css">
 </head>
