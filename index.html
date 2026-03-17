@@ -142,6 +142,12 @@
       </div>
     </a>
     </div>
+    <div id="noResults" style="display:none; text-align:center; padding: 40px; background: rgba(255,255,255,0.03); border-radius: 20px; border: 1px dashed var(--border-color); margin-top: 20px;">
+       <div style="font-size: 3rem; margin-bottom: 16px;">🔍</div>
+       <h4 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">No tools found matching that name</h4>
+       <p style="color: var(--text-secondary);">Try searching for "Love", "Mortgage", or "BMI", or browse by category below.</p>
+       <button onclick="document.getElementById('heroSearch').value=''; document.getElementById('heroSearch').dispatchEvent(new Event('input'))" style="margin-top: 16px; background: var(--accent-blue); color: #fff; border: none; padding: 8px 20px; border-radius: 10px; cursor: pointer; font-weight: 600;">Clear Search</button>
+    </div>
   </div>
 
   <!-- Featured Collections -->
@@ -280,17 +286,23 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
 <script>
   // Hero Search Functionality
   const heroSearch = document.getElementById('heroSearch');
+  const noResults = document.getElementById('noResults');
   if(heroSearch) {
     heroSearch.addEventListener('input', () => {
       const q = heroSearch.value.toLowerCase();
+      let visibleCount = 0;
       document.querySelectorAll('.cat-tile').forEach(tile => {
         const text = tile.innerText.toLowerCase();
-        tile.style.display = text.includes(q) ? 'flex' : 'none';
+        const isMatch = text.includes(q);
+        tile.style.display = isMatch ? 'flex' : 'none';
+        if(isMatch) visibleCount++;
       });
+      
+      if(noResults) noResults.style.display = (visibleCount === 0 && q.length > 0) ? 'block' : 'none';
+
       // Also filter featured links
       document.querySelectorAll('.f-links a').forEach(link => {
         const text = link.innerText.toLowerCase();
-        link.parentElement.style.display = 'block'; // reset
         link.style.display = text.includes(q) ? 'flex' : 'none';
       });
     });
