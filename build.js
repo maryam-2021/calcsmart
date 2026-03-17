@@ -2779,7 +2779,7 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
 // ── Generate HOMEPAGE ─────────────────────────────────────────
 function buildHome() {
   const catTiles = categories.map(cat => `
-    <a href="${cat.slug}.html" class="cat-tile">
+    <a href="${cat.slug}.html" class="cat-tile" id="tile-${cat.slug}">
       <div class="ct-icon">${cat.icon}</div>
       <div class="ct-text">
         <h4>${cat.name}</h4>
@@ -2794,10 +2794,10 @@ function buildHome() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="${GOOGLE_VERIFICATION}">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Dashboard | 50 PLUS FINANCIAL CALCULATORS</title>
-<meta name="description" content="${SITE_TAGLINE}. Over 50 free calculators for finance, health, math, time, and unit conversions.">
-<meta property="og:title" content="Dashboard | 50 PLUS FINANCIAL CALCULATORS">
-<meta property="og:description" content="${SITE_TAGLINE}">
+<title>CalcSmart | Pocket Tools Studio – 75+ Free Online Calculators</title>
+<meta name="description" content="Calculate everything with CalcSmart. 75+ free tools for Finance, Health, Math, Relationships, and Lifestyle. Fast, accurate, and easy to use.">
+<meta property="og:title" content="CalcSmart | Pocket Tools Studio">
+<meta property="og:description" content="75+ free expert calculators for every part of your life.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE_URL}/">
 <link rel="canonical" href="${SITE_URL}/">
@@ -2805,193 +2805,107 @@ function buildHome() {
 </head>
 <body>
 ${headerHTML()}
-<div class="site-wrapper">
-  
-  <div class="dashboard-grid">
-    <!-- Main Left Card -->
-    <div class="card main-card">
-      <div class="mc-header">
-        <h2>Retirement Fund Forecaster</h2>
-        <p>Projected fund value given parameter, desired monthly retirement income and tooltips on hover.</p>
-      </div>
+
+<div class="hero-section">
+  <div class="site-wrapper">
+    <div class="hero-content">
+      <div class="hero-badge">Pocket Tools Studio</div>
+      <h1 class="hero-title">What do you want to <span class="text-gradient">calculate</span> today?</h1>
+      <p class="hero-subtitle">Access 75+ professional-grade tools for finance, relationships, math, and more. No sign-up, just results.</p>
       
-      <div class="mc-body">
-        <div class="chart-container">
-          <!-- Graph visualization -->
-          <div class="y-axis">
-            <span>500,000</span>
-            <span>400,000</span>
-            <span>300,000</span>
-            <span>200,000</span>
-            <span>100,000</span>
-            <span>0</span>
-          </div>
-          <div class="x-axis">
-            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
-          </div>
-          <div class="grid-lines">
-            <div></div><div></div><div></div><div></div><div></div><div></div>
-          </div>
-          <div class="chart-fill"></div>
-          <div class="chart-lines"></div>
-          
-          <div class="chart-tooltip">
-            <span style="font-size:0.7rem; color: #9aa0ac; margin-bottom:2px;">Mar 27</span>
-            <span class="val">$315,000</span>
-          </div>
+      <div class="hero-search-container">
+        <div class="hero-search-box">
+          <span class="hero-search-icon">🔍</span>
+          <input type="text" id="heroSearch" placeholder="Search for 'Love Calculator', 'Mortgage', or 'BMI'..." autocomplete="off">
+          <button class="hero-search-btn">Find Tool</button>
         </div>
-        
-        <div class="form-area">
-          <div class="form-group">
-            <label>Current Savings ($)</label>
-            <input type="text" id="das_sav" value="$15,000.00">
-          </div>
-          <div class="form-group">
-            <label>Desired Monthly Retirement Income ($)</label>
-            <input type="text" id="das_inc" value="$50,000">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Current Age</label>
-              <input type="number" id="das_cage" value="22">
-            </div>
-            <div class="form-group">
-              <label>Target Retirement Age</label>
-              <input type="number" id="das_tage" value="35">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Estimated Tax Rate (%) <span style="font-size:0.7rem; color:var(--text-muted)">(Pre/Post Retirement)</span></label>
-            <input type="number" id="das_tax" value="22">
-          </div>
-          <div class="slider-group">
-            <label>Investment Aggression</label>
-            <input type="range" id="das_agg" min="1" max="100" value="60" class="custom-slider" oninput="updateForecaster(true)">
-            <div class="slider-labels">
-              <span>Conservative</span><span>Aggressive</span>
-            </div>
-          </div>
-          
-          <button class="calc-btn" onclick="updateForecaster()">CALCULATE NOW</button>
-          
-          <div class="results-row" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 24px;">
-            <div class="res-item">
-              <label id="res_lbl_1">Projected Fund<br>at Retirement</label>
-              <div class="val" id="res_sf">$0.00</div>
-            </div>
-            <div class="res-item">
-              <label id="res_lbl_2">Sustainable Monthly<br>Income (30 Years)</label>
-              <div class="val" id="res_req">$0.00</div>
-            </div>
-          </div>
+        <div class="search-suggestions">
+          <span>Trending:</span>
+          <a href="love-calculator.html">Love Score</a>
+          <a href="mortgage-calculator.html">Mortgage</a>
+          <a href="pet-age-calculator.html">Pet Age</a>
+          <a href="bmi-calculator.html">BMI</a>
         </div>
       </div>
-    </div>
-    
-    <!-- Right Sidebar Grid -->
-    <div class="side-grid">
-      <!-- Card 1 -->
-      <a href="love-calculator.html" class="side-card card-icon">
-        <div class="sc-icon">❤️</div>
-        <h3 class="sc-title">Relationship<br>Compatibility</h3>
-        <p class="sc-desc">Explore name-based compatibility and zodiac matches for couples.</p>
-        <span class="card-link">Check Now &rarr;</span>
-      </a>
-      
-      <!-- Card 2 -->
-      <a href="lifestyle-calculators.html" class="side-card card-icon">
-        <div class="sc-icon">✨</div>
-        <h3 class="sc-title">Lifestyle & Goal<br>Planning</h3>
-        <p class="sc-desc">Practical tools for wedding budgets, pet aging, and habit tracking.</p>
-        <span class="card-link">Explore Lifestyle &rarr;</span>
-      </a>
-      
-      <!-- Card 3 -->
-      <a href="mortgage-calculator.html" class="side-card card-icon">
-        <div class="sc-icon">🏠</div>
-        <h3 class="sc-title">Mortgage & Property<br>Tax Helper</h3>
-        <p class="sc-desc">Calculate interest savings and local property tax deductions.</p>
-        <span class="card-link">Calculate &rarr;</span>
-      </a>
-      
-      <!-- Card 4 -->
-      <a href="investment-calculator.html" class="side-card card-icon">
-        <div class="sc-icon">💹</div>
-        <h3 class="sc-title">Portfolio Growth<br>Forecaster</h3>
-        <p class="sc-desc">See how your investments grow after-tax over 10, 20, or 30 years.</p>
-        <span class="card-link">View Growth &rarr;</span>
-      </a>
     </div>
   </div>
+</div>
 
-  <!-- New Section for discovery -->
-  <div class="discovery-section">
-    <div class="ds-header">
-      <h3>Explore Our 50+ Specialized Tools</h3>
-      <p>Instant, accurate results across all categories</p>
+<div class="site-wrapper">
+  <!-- Quick Access Grid -->
+  <div class="quick-access-section">
+    <div class="section-header">
+      <h3>Quick Access Categories</h3>
+      <p>Browse our specialized tool suites</p>
     </div>
     <div class="category-tiles">
       ${catTiles}
     </div>
   </div>
+
+  <!-- Featured Collections -->
+  <div class="featured-sections">
+    <div class="featured-row">
+      <div class="featured-col">
+        <div class="f-header">
+          <span class="f-icon">❤️</span>
+          <h4>Viral & Social Tools</h4>
+        </div>
+        <div class="f-links">
+          <a href="love-calculator.html">Love Calculator <span>Popular</span></a>
+          <a href="zodiac-matcher.html">Zodiac Compatibility</a>
+          <a href="friendship-compatibility.html">Friendship Tester</a>
+          <a href="lucky-numbers.html">Lucky Number Generator</a>
+        </div>
+      </div>
+      <div class="featured-col">
+        <div class="f-header">
+          <span class="f-icon">💰</span>
+          <h4>Smart Finance Suite</h4>
+        </div>
+        <div class="f-links">
+          <a href="mortgage-calculator.html">Mortgage Helper</a>
+          <a href="investment-calculator.html">Investment Growth</a>
+          <a href="compound-interest.html">Compound Interest</a>
+          <a href="profit-margin-calculator.html">Profit Margin Tool</a>
+        </div>
+      </div>
+      <div class="featured-col">
+        <div class="f-header">
+          <span class="f-icon">✨</span>
+          <h4>Lifestyle & Planning</h4>
+        </div>
+        <div class="f-links">
+          <a href="wedding-budget.html">Wedding Planner</a>
+          <a href="pet-age-calculator.html">Pet Age Converter</a>
+          <a href="habit-streak.html">Habit Tracker</a>
+          <a href="baby-name-meaning.html">Baby Names</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 ${footerHTML()}
+
 <script>
-  function parseVal(id) {
-    let val = document.getElementById(id).value.replace(/[^0-9.]/g, '');
-    return parseFloat(val) || 0;
+  // Hero Search Functionality
+  const heroSearch = document.getElementById('heroSearch');
+  if(heroSearch) {
+    heroSearch.addEventListener('input', () => {
+      const q = heroSearch.value.toLowerCase();
+      document.querySelectorAll('.cat-tile').forEach(tile => {
+        const text = tile.innerText.toLowerCase();
+        tile.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+      // Also filter featured links
+      document.querySelectorAll('.f-links a').forEach(link => {
+        const text = link.innerText.toLowerCase();
+        link.parentElement.style.display = 'block'; // reset
+        link.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    });
   }
-
-  function updateForecaster(isAuto = false) {
-    const savings = parseVal('das_sav');
-    const income = parseVal('das_inc');
-    const age = parseVal('das_cage');
-    const targetAge = parseVal('das_tage');
-    const tax = parseVal('das_tax') / 100;
-    const agg = parseVal('das_agg');
-    
-    const yearsToRetire = Math.max(0, targetAge - age);
-    if (yearsToRetire === 0 && !isAuto) return;
-
-    const rate = (3 + (agg / 100) * 7) / 100;
-    const monthlyRate = rate / 12;
-    const months = yearsToRetire * 12;
-    const monthlyContrib = income * 0.2; 
-
-    let fund = savings * Math.pow(1 + monthlyRate, months);
-    if (monthlyRate > 0) {
-      fund += monthlyContrib * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-    } else {
-      fund += monthlyContrib * months;
-    }
-
-    document.getElementById('res_sf').innerText = '$' + fund.toLocaleString(undefined, {maximumFractionDigits:0});
-    
-    const retireYears = 30;
-    const retireRate = 0.04 / 12;
-    const retireMonths = retireYears * 12;
-    
-    let sustIncome = 0;
-    if (retireRate > 0) {
-      sustIncome = (fund * retireRate * Math.pow(1 + retireRate, retireMonths)) / (Math.pow(1 + retireRate, retireMonths) - 1);
-    } else {
-      sustIncome = fund / retireMonths;
-    }
-
-    document.getElementById('res_req').innerText = '$' + sustIncome.toLocaleString(undefined, {maximumFractionDigits:0}) + '/mo';
-
-    const chartFill = document.querySelector('.chart-fill');
-    const chartLines = document.querySelector('.chart-lines');
-    if (chartFill && chartLines) {
-      const curve = agg > 70 ? 'Q40,60 100,0' : agg < 30 ? 'Q40,85 100,60' : 'Q40,80 100,20';
-      const fillPath = agg > 70 ? 'M0,90 Q40,60 100,0 L100,100 L0,100 Z' : agg < 30 ? 'M0,90 Q40,85 100,60 L100,100 L0,100 Z' : 'M0,90 Q40,80 100,20 L100,100 L0,100 Z';
-      
-      chartLines.style.backgroundImage = \`url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,90 \${curve}" fill="none" stroke="%23208af0" stroke-width="2"/></svg>')\`;
-      chartFill.style.backgroundImage = \`url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="\${fillPath}" fill="url(%23g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(32,138,240,0.3)"/><stop offset="100%" stop-color="rgba(32,138,240,0)"/></linearGradient></defs></svg>')\`;
-    }
-  }
-
-  setTimeout(updateForecaster, 500);
 </script>
 </body>
 </html>`;
