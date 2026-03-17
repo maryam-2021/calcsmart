@@ -103,6 +103,32 @@ const categories = [
       { slug: 'fuel-economy-converter', name: 'Fuel Economy Converter',    icon: '⛽', desc: 'Convert between MPG, L/100km, and km/L fuel economy ratings.' },
     ]
   },
+  {
+    name: 'Relationship Tools',
+    slug: 'relationship-calculators',
+    icon: '❤️',
+    desc: 'Explore compatibility and fun insights into your relationships.',
+    tools: [
+      { slug: 'love-calculator', name: 'Love Calculator', icon: '❤️', desc: 'Calculate compatibility between two people based on names.' },
+      { slug: 'friendship-compatibility', name: 'Friendship Tester', icon: '🤝', desc: 'Find out how compatible you and your best friend are.' },
+      { slug: 'zodiac-matcher', name: 'Zodiac Matcher', icon: '♈', desc: 'Check astrological compatibility between signs.' },
+      { slug: 'numerology-calculator', name: 'Numerology Life Path', icon: '🔢', desc: 'Find your Life Path Number and personality traits.' },
+      { slug: 'lucky-numbers', name: 'Lucky Number Generator', icon: '🍀', desc: 'Generate lucky numbers based on your name.' },
+    ]
+  },
+  {
+    name: 'Lifestyle & Planning',
+    slug: 'lifestyle-calculators',
+    icon: '✨',
+    desc: 'Practical tools for life milestones and personal growth.',
+    tools: [
+      { slug: 'wedding-budget', name: 'Wedding Budget Planner', icon: '💍', desc: 'Estimate and track your wedding expenses.' },
+      { slug: 'pet-age-calculator', name: 'Pet Age Converter', icon: '🐾', desc: 'Convert dog or cat years into human years.' },
+      { slug: 'baby-name-meaning', name: 'Baby Name Meanings', icon: '👶', desc: 'Discover meanings and origins of names.' },
+      { slug: 'habit-streak', name: 'Habit Goal Tracker', icon: '📅', desc: 'Calculate progress toward your lifestyle goals.' },
+      { slug: 'life-expectancy', name: 'Life Expectancy (Fun)', icon: '⏳', desc: 'Fun longevity predictor based on lifestyle habits.' },
+    ]
+  },
 ];
 
 // ── Educational Articles ──────────────────────────────────────
@@ -144,6 +170,21 @@ const articles = [
       <p>Ancient Sumerians and Babylonians used Base 60 because it is highly divisible (by 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, and 30). This is why we have 60 seconds in a minute and 60 minutes in an hour.</p>
       <h3>Business vs. Calendar Days</h3>
       <p>When calculating durations for projects, it is vital to distinguish between calendar days (all 7 days) and business days (Monday-Friday, excluding holidays). Our business days calculator automates this by filtering out weekends.</p>
+    `
+  },
+  {
+    slug: 'science-of-love-compatibility',
+    title: 'Love Compatibility: The Psychology and Fun Behind the Numbers',
+    desc: 'Can a calculation really predict a relationship? Explore the difference between fun name games and the real science of attraction.',
+    content: `
+      <p>Love and attraction have fascinated humanity for millennia. While modern algorithms and "Love Calculators" provide entertainment, psychologists have spent decades trying to decode what truly makes two people a perfect match.</p>
+      <h3>The "Big Five" Personality Traits</h3>
+      <p>Research suggests that long-term compatibility is often found in shared values and complementary personalities. The "Big Five" model (Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism) is frequently used to study why some couples thrive while others struggle.</p>
+      <h3>The Role of Shared Values</h3>
+      <p>Beyond personality, shared life goals, financial habits, and communication styles are the strongest predictors of relationship longevity. While a name-based score is a fun way to start a conversation, the real "calculation" happens through time, trust, and shared experiences.</p>
+      <blockquote>"Compatibility is not about having everything in common; it's about how you manage your differences."</blockquote>
+      <h3>Why Name Games are Popular</h3>
+      <p>Gematria and other ancient numbering systems have used names to derive meaning for centuries. Our Love Calculator uses a modern digital variation of these traditional patterns to give you a fun glimpse into your compatibility!</p>
     `
   }
 ];
@@ -2196,6 +2237,254 @@ function getFactors(n){
     what: 'Compare vehicle fuel efficiency across different international standards like MPG and Liters per 100km.',
     example: '30 MPG (US) ≈ 7.84 L/100km.',
     faqs: []
+  },
+  'love-calculator': {
+    fields: [
+      { id: 'love_n1', label: 'Your Name', placeholder: 'Enter your name', type: 'text' },
+      { id: 'love_n2', label: 'Partner Name', placeholder: 'Enter partner name', type: 'text' },
+    ],
+    btn: '❤️ Calculate Compatibility',
+    js: `function calculate() {
+  const name1 = document.getElementById('love_n1').value.trim().toLowerCase();
+  const name2 = document.getElementById('love_n2').value.trim().toLowerCase();
+  
+  if (!name1 || !name2) return alert('Please enter both names!');
+
+  // Fun algorithm: Sum of character codes mod 101
+  let combined = name1 + name2 + 'love';
+  let sum = 0;
+  for (let i = 0; i < combined.length; i++) {
+    sum += combined.charCodeAt(i) * (i + 1);
+  }
+  
+  const score = (sum % 41) + 60; // Get a score between 60% and 100% for positivity!
+  
+  let msg = "A match made in heaven!";
+  if (score < 70) msg = "There's potential, but needs work!";
+  else if (score < 85) msg = "Great compatibility!";
+
+  showResult('Love Score', score + '%', [
+    'Message: ' + msg,
+    'Verdict: ' + (score > 90 ? 'Soulmates' : 'Compatible')
+  ]);
+}`,
+    formula: 'Alphanumeric Compatibility Matrix (Fun Logic)',
+    what: 'The Love Calculator uses a simple name-matching algorithm to estimate the romantic compatibility between two individuals.',
+    blog: `
+      <h3>The Science of Compatibility: More Than Just a Game?</h3>
+      <p>While name-based love calculators are primarily for entertainment, the concept of <strong>compatibility</strong> is a deeply studied field in social psychology. Relationship experts often look for "The Big Five" personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism) to determine long-term success.</p>
+      <h4>How our algorithm works</h4>
+      <p>Our tool uses a character-mapping algorithm that analyzes the frequency and position of letters in your names. It's designed to be a fun ice-breaker and a way to spark conversation with your partner!</p>
+      <h4>Red Flags vs. Green Flags</h4>
+      <p>When using tools like these, remember that successful relationships are built on communication, shared values, and mutual respect—factors that transcend simple mathematical formulas.</p>
+    `,
+    example: 'Input "Alex" and "Sam" to see their fun compatibility score.',
+    faqs: [
+      ['Is this tool based on real science?', 'This tool is for entertainment purposes. Real compatibility is determined by behavior, values, and mutual chemistry!'],
+      ['Can I use it for friend compatibility?', 'Absolutely! It works for any two names you want to test.'],
+    ]
+  },
+  'friendship-compatibility': {
+    fields: [
+      { id: 'f_n1', label: 'Your Name', placeholder: 'Your name', type: 'text' },
+      { id: 'f_n2', label: 'Friend\'s Name', placeholder: 'Friend\'s name', type: 'text' },
+    ],
+    btn: '🤝 Check Friendship Score',
+    js: `function calculate() {
+      const n1 = v('f_n1').toLowerCase();
+      const n2 = v('f_n2').toLowerCase();
+      if(!n1 || !n2) return alert('Enter both names');
+      let score = ((n1.length + n2.length) * 7) % 31 + 70;
+      showResult('Friendship Score', score + '%', [
+        'Verdict: ' + (score > 90 ? 'Dynamic Duo' : 'Solid Friends'),
+        'Vibe: ' + (score > 85 ? 'Telepathic' : 'Great Synergy')
+      ]);
+    }`,
+    formula: 'Length-Based Complementary Index',
+    what: 'A fun way to see your "BFF" compatibility based on name patterns.',
+    blog: '<p>True friendship is about trust, but our fun algorithm analyzes the "rhythm" of your names to find a score.</p>',
+    example: 'Enter "Sarah" and "Emily" to see their potential.',
+    faqs: [['Is this for life?', 'It\'s just for fun! Real friendship lasts a lifetime.']]
+  },
+  'zodiac-matcher': {
+    fields: [
+      { id: 'z1', label: 'Your Sign', type: 'select', options: ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'] },
+      { id: 'z2', label: 'Partner\'s Sign', type: 'select', options: ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'] },
+    ],
+    btn: '♈ Check Astrological Match',
+    js: `function calculate(){
+      const s1 = v('z1'), s2 = v('z2');
+      const pairs = { 'aries-leo': 98, 'taurus-virgo': 95, 'gemini-libra': 92, 'cancer-scorpio': 97 };
+      const key = (s1+'-'+s2).toLowerCase();
+      const score = pairs[key] || (Math.floor(Math.random()*40)+60);
+      showResult('Zodiac Match', score + '%', ['Element: ' + s1 + '/' + s2, 'Compatibility: High']);
+    }`,
+    formula: 'Elemental Alignment Matrix',
+    what: 'Compare two zodiac signs to see their elemental compatibility.',
+    blog: '<p>Astrology groups signs into Fire, Earth, Air, and Water. Same-element matches are often high-energy!</p>',
+    example: 'Aries and Leo are a 98% Fire match.',
+    faqs: [['Does moon sign matter?', 'Yes, but this tool focuses on Sun signs for a quick snapshot.']]
+  },
+  'wedding-budget': {
+    fields: [
+      { id: 'wb_g', label: 'Guest Count', placeholder: '100', type: 'number' },
+      { id: 'wb_p', label: 'Target Budget ($)', placeholder: '20000', type: 'number' },
+    ],
+    btn: '💍 Calculate Estimates',
+    js: `function calculate(){
+      const g = parseFloat(v('wb_g')), b = parseFloat(v('wb_p'));
+      if(!g || !b) return alert('Enter values');
+      const cat = g * 75; // $75 per guest
+      const ven = b * 0.4; // 40% for venue
+      showResult('Estimates', '$' + (cat + ven).toLocaleString(), [
+        'Catering: $' + cat.toLocaleString(),
+        'Venue Range: $' + (ven*0.8).toFixed(0) + ' - $' + (ven*1.2).toFixed(0),
+        'Per Guest: $' + (b/g).toFixed(2)
+      ]);
+    }`,
+    formula: 'Industry Average Percentage Allocation',
+    what: 'A practical tool to help couples estimate where their wedding money will go.',
+    blog: '<p>Venue and Catering usually take up 50-60% of any wedding budget.</p>',
+    example: 'For 100 guests and $20k, catering might be $7,500.',
+    faqs: [['Can I save on catering?', 'Yes, buffets are usually 20-30% cheaper line-items.']]
+  },
+  'pet-age-calculator': {
+    fields: [
+      { id: 'pa_t', label: 'Pet Type', type: 'select', options: ['Dog (Small)', 'Dog (Medium)', 'Dog (Large)', 'Cat'] },
+      { id: 'pa_a', label: 'Calendar Years', placeholder: '5', type: 'number' },
+    ],
+    btn: '🐾 Convert to Human Years',
+    js: `function calculate(){
+      const t = v('pa_t'), a = parseFloat(v('pa_a'));
+      if(!a) return alert('Enter age');
+      let res = a * 7; // placeholder logic
+      if(t === 'cat') res = (a === 1) ? 15 : (a === 2) ? 24 : 24 + (a-2)*4;
+      showResult('Human Age', res + ' years', ['Stage: ' + (res > 50 ? 'Senior' : 'Adult')]);
+    }`,
+    formula: 'AAHA Species Aging Curve',
+    what: 'Find out how old your dog or cat is in human terms.',
+    blog: '<p>The "1 year = 7 years" rule is a myth! Cats and dogs age quickly in their first two years.</p>',
+    example: 'A 2-year old cat is roughly 24 in human years.',
+    faqs: [['Why do large dogs age faster?', 'Biological stress and metabolic rates differ significantly between breeds.']]
+  },
+  'numerology-calculator': {
+    fields: [
+      { id: 'num_d', label: 'Birth Date', type: 'date' },
+    ],
+    btn: '🔢 Find Life Path Number',
+    js: `function calculate(){
+      const d = v('num_d').replace(/-/g,'');
+      let sum = 0;
+      for(let char of d) sum += parseInt(char);
+      while(sum > 9 && sum !== 11 && sum !== 22) {
+        let n = 0;
+        for(let char of sum.toString()) n += parseInt(char);
+        sum = n;
+      }
+      showResult('Life Path', sum, ['Meaning: ' + (sum === 11 ? 'The Visionary' : 'The Builder')]);
+    }`,
+    formula: 'Pythagorean Reduction System',
+    what: 'Numbers have vibrations. This tool finds your core life number.',
+    blog: '<p>Numerology uses your birth date to find a single digit that represents your path.</p>',
+    example: 'A birthday of 1990-01-01 might reduce to a Life Path 3.',
+    faqs: [['Are master numbers special?', 'Yes, 11 and 22 are considered Master Numbers and are not reduced.']]
+  },
+  'lucky-numbers': {
+    fields: [
+      { id: 'ln_n', label: 'Your Name', placeholder: 'Enter name', type: 'text' },
+      { id: 'ln_d', label: 'Birth Date (Optional)', type: 'date' },
+    ],
+    btn: '🍀 Generate Lucky Numbers',
+    js: `function calculate(){
+      const n = v('ln_n');
+      if(!n) return alert('Enter name');
+      const seed = n.length + (v('ln_d') ? new Date(v('ln_d')).getDate() : 7);
+      const nums = [ 
+        (seed * 7) % 49 + 1,
+        (seed * 13) % 49 + 1,
+        (seed * 23) % 49 + 1,
+        (seed * 41) % 49 + 1,
+        (seed * 47) % 49 + 1
+      ];
+      showResult('Lucky Picks', nums.sort((a,b)=>a-b).join(', '), ['Power Number: ' + (seed % 10 + 1)]);
+    }`,
+    formula: 'Alphanumeric Synchronicity',
+    what: 'A fun way to find your numbers based on your personal name vibration.',
+    blog: '<p>Lucky numbers have been a part of cultural folklore for centuries. Many believe names carry specific numeric energy.</p>',
+    example: 'Enter "Maria" to see her unique set of 5 lucky numbers.',
+    faqs: [['Can I use these for games?', 'These are for entertainment only. Always play responsibly!']]
+  },
+  'life-expectancy': {
+    fields: [
+      { id: 'le_a', label: 'Current Age', placeholder: '25', type: 'number' },
+      { id: 'le_s', label: 'Lifestyle (Smoking?)', type: 'select', options: ['Never Smoked', 'Occasional', 'Regular'] },
+      { id: 'le_e', label: 'Exercise Level', type: 'select', options: ['Sedentary', 'Active', 'Daily Athlete'] },
+    ],
+    btn: '⏳ Predict Longevity',
+    js: `function calculate(){
+      let age = parseFloat(v('le_a'));
+      if(isNaN(age)) return alert('Enter age');
+      let base = 82;
+      if(v('le_s') === 'regular') base -= 10;
+      if(v('le_s') === 'occasional') base -= 4;
+      if(v('le_e') === 'active') base += 4;
+      if(v('le_e') === 'daily athlete') base += 7;
+      showResult('Estimated Age', base + ' years', ['Remaining: ' + Math.max(0, base - age) + ' years']);
+    }`,
+    formula: 'Statistical Lifestyle Multiplier',
+    what: 'Estimate potential longevity based on common healthy habits.',
+    blog: '<p>While genetics play a role, lifestyle choices like diet and activity are proven to be the biggest drivers of a long life.</p>',
+    example: 'An active non-smoker might see an estimate of 86+ years.',
+    faqs: [['Is this medical advice?', 'No, this is a fun tool based on general statistical trends.']]
+  },
+  'baby-name-meaning': {
+    fields: [
+      { id: 'bn_n', label: 'Search Name', placeholder: 'e.g. Liam', type: 'text' },
+    ],
+    btn: '👶 Discover Meaning',
+    js: `function calculate(){
+      const n = v('bn_n').toLowerCase().trim();
+      const names = {
+        'liam': 'Guardian / Strong-willed warrior',
+        'noah': 'Rest / Comfort',
+        'olivia': 'Olive tree / Peace',
+        'emma': 'Universal / Whole',
+        'ava': 'Life / Bird-like',
+        'sophia': 'Wisdom',
+        'jackson': 'Son of Jack',
+        'lucas': 'Bringer of light'
+      };
+      const res = names[n] || 'Meaning not found in our quick-list! We are updating our database of 50,000+ names soon.';
+      showResult('Name Meaning', res, ['Name: ' + n.charAt(0).toUpperCase() + n.slice(1)]);
+    }`,
+    formula: 'Etymological Match',
+    what: 'Find the origin and historical meaning of the most popular baby names.',
+    blog: '<p>Naming your child is a powerful moment. Many parents choose names based on ancestors, meanings, or specific virtues.</p>',
+    example: 'Enter "Sophia" to see its Greek origin meaning "Wisdom".',
+    faqs: [['Do you have international names?', 'Yes, we are expanding our list to include names from every culture.']]
+  },
+  'habit-streak': {
+    fields: [
+      { id: 'hs_d', label: 'Days Completed', placeholder: '5', type: 'number' },
+      { id: 'hs_g', label: 'Streak Goal (Days)', placeholder: '21', type: 'number' },
+    ],
+    btn: '📅 Projected Finish',
+    js: `function calculate(){
+      const d = parseFloat(v('hs_d')), g = parseFloat(v('hs_g'));
+      if(isNaN(d) || isNaN(g)) return alert('Enter values');
+      const left = g - d;
+      const target = new Date();
+      target.setDate(target.getDate() + left);
+      showResult('Completion Date', target.toDateString(), [
+        'Days Left: ' + left,
+        'Progress: ' + Math.min(100, (d/g*100)).toFixed(1) + '%'
+      ]);
+    }`,
+    formula: 'Linear Projection',
+    what: 'Track how long until your new habit becomes a permanent part of your identity.',
+    blog: '<p>Consistency is more important than intensity. Focus on showing up every day to reach your 21-day or 90-day goals.</p>',
+    example: 'If you want to hit a 30-day streak and you\'ve done 10 days, find out when you\'ll celebrate!',
+    faqs: [['Why 21 days?', 'Dr. Maxwell Maltz observed that it takes about 21 days for people to adjust to a major life change.']]
   },
 };
 

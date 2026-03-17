@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="vlq0h42e0Vv2XxJQoYxQ7EQVFrY3AMs9PqJ5OA1WpT8">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Zodiac Matcher – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Check astrological compatibility between signs. Use our free zodiac matcher online — instant results, no sign-up.">
+<meta property="og:title" content="Zodiac Matcher – Free Online Calculator">
+<meta property="og:description" content="Check astrological compatibility between signs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://radiant-cendol-ef5153.netlify.app/zodiac-matcher.html">
+<link rel="canonical" href="https://radiant-cendol-ef5153.netlify.app/zodiac-matcher.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="CalcSmart Logo" style="height:48px; width:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <div class="logo-text">
+          <h1 style="font-size:1.6rem; letter-spacing:-0.02em;">CalcSmart</h1>
+          <p style="font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent-blue);">Pocket Tools Studio</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="relationship-calculators.html">Relationship Tools</a>
+      <span>›</span>
+      <span class="current">Zodiac Matcher</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>♈ Zodiac Matcher</h1>
+      <p>Check astrological compatibility between signs.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group"><label for="z1">Your Sign</label><select id="z1" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="aries">Aries</option><option value="taurus">Taurus</option><option value="gemini">Gemini</option><option value="cancer">Cancer</option><option value="leo">Leo</option><option value="virgo">Virgo</option><option value="libra">Libra</option><option value="scorpio">Scorpio</option><option value="sagittarius">Sagittarius</option><option value="capricorn">Capricorn</option><option value="aquarius">Aquarius</option><option value="pisces">Pisces</option></select></div><div class="form-group"><label for="z2">Partner's Sign</label><select id="z2" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="aries">Aries</option><option value="taurus">Taurus</option><option value="gemini">Gemini</option><option value="cancer">Cancer</option><option value="leo">Leo</option><option value="virgo">Virgo</option><option value="libra">Libra</option><option value="scorpio">Scorpio</option><option value="sagittarius">Sagittarius</option><option value="capricorn">Capricorn</option><option value="aquarius">Aquarius</option><option value="pisces">Pisces</option></select></div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ ♈ Check Astrological Match</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Zodiac Matcher?</h2>
+      <p>Compare two zodiac signs to see their elemental compatibility.</p>
+      <div class="formula-box"><code>Elemental Alignment Matrix</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Zodiac Matcher</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        <p>Astrology groups signs into Fire, Earth, Air, and Water. Same-element matches are often high-energy!</p>
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Aries and Leo are a 98% Fire match.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Does moon sign matter?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes, but this tool focuses on Sun signs for a quick snapshot.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="love-calculator.html" class="related-link"><span class="r-icon">❤️</span>Love Calculator</a><a href="friendship-compatibility.html" class="related-link"><span class="r-icon">🤝</span>Friendship Tester</a><a href="numerology-calculator.html" class="related-link"><span class="r-icon">🔢</span>Numerology Life Path</a><a href="lucky-numbers.html" class="related-link"><span class="r-icon">🍀</span>Lucky Number Generator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+      const s1 = v('z1'), s2 = v('z2');
+      const pairs = { 'aries-leo': 98, 'taurus-virgo': 95, 'gemini-libra': 92, 'cancer-scorpio': 97 };
+      const key = (s1+'-'+s2).toLowerCase();
+      const score = pairs[key] || (Math.floor(Math.random()*40)+60);
+      showResult('Zodiac Match', score + '%', ['Element: ' + s1 + '/' + s2, 'Compatibility: High']);
+    }
+</script>
+</body>
+</html>
