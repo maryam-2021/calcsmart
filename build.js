@@ -4,7 +4,7 @@ const path = require('path');
 // ── Site config ──────────────────────────────────────────────
 const SITE_NAME = 'CalcSmart';
 const SITE_TAGLINE = 'Free Online Calculators for Everything';
-const SITE_URL = 'https://calcsmart.com';
+const SITE_URL = 'https://radiant-cendol-ef5153.netlify.app';
 const GOOGLE_VERIFICATION = 'vlq0h42e0Vv2XxJQoYxQ7EQVFrY3AMs9PqJ5OA1WpT8';
 const OUT_DIR = __dirname;
 
