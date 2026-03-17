@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Security Estimator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Estimate your future Social Security benefits based on earnings. Use our free social security estimator online — instant results, no sign-up.">
+<meta property="og:title" content="Social Security Estimator – Free Online Calculator">
+<meta property="og:description" content="Estimate your future Social Security benefits based on earnings.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/social-security-calculator.html">
+<link rel="canonical" href="https://calcsmart.com/social-security-calculator.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="finance-calculators.html">Finance Calculators</a>
+      <span>›</span>
+      <span class="current">Social Security Estimator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>👴 Social Security Estimator</h1>
+      <p>Estimate your future Social Security benefits based on earnings.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="income">Average Annual Income ($)</label>
+      <input type="number" id="income" placeholder="60000" >
+    </div><div class="form-group">
+      <label for="age">Retirement Age</label>
+      <input type="number" id="age" placeholder="67" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Estimate Benefits</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Social Security Estimator?</h2>
+      <p>The Social Security Estimator provides a quick approximation of your monthly retirement benefits based on your average career earnings and chosen retirement age.</p>
+      <div class="formula-box"><code>Benefit ≈ Income × Age Factor</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Social Security Estimator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Understanding your Social Security benefit is a cornerstone of retirement planning in the United States. The amount you receive depends heavily on <em>when</em> you choose to start collecting.</p>
+      <h4>Early vs. Delayed Retirement</h4>
+      <p>The "Full Retirement Age" (FRA) is currently 67 for most people. If you start at 62, your monthly check is reduced by up to 30% permanently. However, if you wait until age 70, your benefit increases by 8% per year past your FRA. This is a massive guaranteed return that is hard to find elsewhere.</p>
+      <h4>The 35-Year Rule</h4>
+      <p>The SSA calculates your benefit based on your highest 35 years of indexed earnings. if you have fewer than 35 years of work, the remaining years are averaged in as zeros, which can significantly pull down your monthly benefit.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Example: $60,000 annual income at age 67 ≈ $2,000/month</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">When can I start taking benefits?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">You can start as early as 62, but your monthly amount will be reduced compared to waiting until full retirement age (usually 67).</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How is the benefit calculated?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The Social Security Administration uses your highest 35 years of indexed earnings to calculate your Primary Insurance Amount (PIA).</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Does waiting until 70 increase my benefit?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes, you earn delayed retirement credits for every month you wait past full retirement age, up to age 70.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="mortgage-calculator.html" class="related-link"><span class="r-icon">🏠</span>Mortgage Calculator</a><a href="loan-calculator.html" class="related-link"><span class="r-icon">🏦</span>Loan Calculator</a><a href="compound-interest.html" class="related-link"><span class="r-icon">📈</span>Compound Interest Calculator</a><a href="savings-calculator.html" class="related-link"><span class="r-icon">🐷</span>Savings Calculator</a><a href="investment-calculator.html" class="related-link"><span class="r-icon">💹</span>Investment Calculator</a><a href="roi-calculator.html" class="related-link"><span class="r-icon">📊</span>ROI Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const inc = parseFloat(v('income'));
+  const age = parseFloat(v('age'));
+  if(!inc||!age) return alert('Please fill all fields');
+  // Simple approximation: ~40% of income if retiring at 67
+  let factor = age < 62 ? 0 : age < 67 ? 0.3 : age < 70 ? 0.4 : 0.48;
+  const monthly = (inc * factor) / 12;
+  showResult('Est. Monthly Benefit', '$'+monthly.toFixed(2), [
+    'Annual Benefit: $'+(monthly*12).toLocaleString(),
+    'Replacement Rate: '+(factor*100)+'%',
+    'Full Retirement Age: 67'
+  ]);
+}
+</script>
+</body>
+</html>

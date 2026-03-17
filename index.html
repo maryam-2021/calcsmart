@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | 50 PLUS FINANCIAL CALCULATORS</title>
+<meta name="description" content="Free Online Calculators for Everything. Over 50 free calculators for finance, health, math, time, and unit conversions.">
+<meta property="og:title" content="Dashboard | 50 PLUS FINANCIAL CALCULATORS">
+<meta property="og:description" content="Free Online Calculators for Everything">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/">
+<link rel="canonical" href="https://calcsmart.com/">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  
+  <div class="dashboard-grid">
+    <!-- Main Left Card -->
+    <div class="card main-card">
+      <div class="mc-header">
+        <h2>Retirement Fund Forecaster</h2>
+        <p>Projected fund value given parameter, desired monthly retirement income and tooltips on hover.</p>
+      </div>
+      
+      <div class="mc-body">
+        <div class="chart-container">
+          <!-- Graph visualization -->
+          <div class="y-axis">
+            <span>500,000</span>
+            <span>400,000</span>
+            <span>300,000</span>
+            <span>200,000</span>
+            <span>100,000</span>
+            <span>0</span>
+          </div>
+          <div class="x-axis">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+          </div>
+          <div class="grid-lines">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+          <div class="chart-fill"></div>
+          <div class="chart-lines"></div>
+          
+          <div class="chart-tooltip">
+            <span style="font-size:0.7rem; color: #9aa0ac; margin-bottom:2px;">Mar 27</span>
+            <span class="val">$315,000</span>
+          </div>
+        </div>
+        
+        <div class="form-area">
+          <div class="form-group">
+            <label>Current Savings ($)</label>
+            <input type="text" id="das_sav" value="$15,000.00">
+          </div>
+          <div class="form-group">
+            <label>Desired Monthly Retirement Income ($)</label>
+            <input type="text" id="das_inc" value="$50,000">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Current Age</label>
+              <input type="number" id="das_cage" value="22">
+            </div>
+            <div class="form-group">
+              <label>Target Retirement Age</label>
+              <input type="number" id="das_tage" value="35">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Estimated Tax Rate (%) <span style="font-size:0.7rem; color:var(--text-muted)">(Pre/Post Retirement)</span></label>
+            <input type="number" id="das_tax" value="22">
+          </div>
+          <div class="slider-group">
+            <label>Investment Aggression</label>
+            <input type="range" id="das_agg" min="1" max="100" value="60" class="custom-slider" oninput="updateForecaster(true)">
+            <div class="slider-labels">
+              <span>Conservative</span><span>Aggressive</span>
+            </div>
+          </div>
+          
+          <button class="calc-btn" onclick="updateForecaster()">CALCULATE NOW</button>
+          
+          <div class="results-row" style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 24px;">
+            <div class="res-item">
+              <label id="res_lbl_1">Projected Fund<br>at Retirement</label>
+              <div class="val" id="res_sf">$0.00</div>
+            </div>
+            <div class="res-item">
+              <label id="res_lbl_2">Sustainable Monthly<br>Income (30 Years)</label>
+              <div class="val" id="res_req">$0.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Sidebar Grid -->
+    <div class="side-grid">
+      <!-- Card 1 -->
+      <a href="social-security-calculator.html" class="side-card card-chart">
+        <h3 class="sc-title">Social Security<br>Planning</h3>
+        <div class="sc-vis"></div>
+        <p class="sc-desc">Estimate your future Social Security benefits and tax impact.</p>
+        <span class="card-link">Optimize Now &rarr;</span>
+      </a>
+      
+      <!-- Card 2 -->
+      <a href="investment-calculator.html" class="side-card card-icon">
+        <div class="sc-icon">💹</div>
+        <h3 class="sc-title">Portfolio Growth<br>Forecaster</h3>
+        <p class="sc-desc">See how your investments grow after-tax over 10, 20, or 30 years.</p>
+        <span class="card-link">View Growth &rarr;</span>
+      </a>
+      
+      <!-- Card 3 -->
+      <a href="mortgage-calculator.html" class="side-card card-icon">
+        <div class="sc-icon">🏠</div>
+        <h3 class="sc-title">Mortgage & Property<br>Tax Helper</h3>
+        <p class="sc-desc">Calculate interest savings and local property tax deductions.</p>
+        <span class="card-link">Calculate &rarr;</span>
+      </a>
+      
+      <!-- Card 4 -->
+      <a href="tax-calculator.html" class="side-card card-icon">
+        <div class="sc-icon">💼</div>
+        <h3 class="sc-title">Income & Tax<br>Optimization</h3>
+        <p class="sc-desc">Analyze your bracket and maximize your tax-free retirement contributions.</p>
+        <span class="card-link">Analyze &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- New Section for discovery -->
+  <div class="discovery-section">
+    <div class="ds-header">
+      <h3>Explore Our 50+ Specialized Tools</h3>
+      <p>Instant, accurate results across all categories</p>
+    </div>
+    <div class="category-tiles">
+      
+    <a href="finance-calculators.html" class="cat-tile">
+      <div class="ct-icon">💰</div>
+      <div class="ct-text">
+        <h4>Finance Calculators</h4>
+        <p>11 Tools</p>
+      </div>
+    </a>
+    <a href="health-calculators.html" class="cat-tile">
+      <div class="ct-icon">❤️</div>
+      <div class="ct-text">
+        <h4>Health Calculators</h4>
+        <p>11 Tools</p>
+      </div>
+    </a>
+    <a href="math-calculators.html" class="cat-tile">
+      <div class="ct-icon">📐</div>
+      <div class="ct-text">
+        <h4>Math Calculators</h4>
+        <p>10 Tools</p>
+      </div>
+    </a>
+    <a href="time-calculators.html" class="cat-tile">
+      <div class="ct-icon">⏰</div>
+      <div class="ct-text">
+        <h4>Time Calculators</h4>
+        <p>11 Tools</p>
+      </div>
+    </a>
+    <a href="conversion-calculators.html" class="cat-tile">
+      <div class="ct-icon">🔄</div>
+      <div class="ct-text">
+        <h4>Conversion Calculators</h4>
+        <p>10 Tools</p>
+      </div>
+    </a>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+  function parseVal(id) {
+    let val = document.getElementById(id).value.replace(/[^0-9.]/g, '');
+    return parseFloat(val) || 0;
+  }
+
+  function updateForecaster(isAuto = false) {
+    const savings = parseVal('das_sav');
+    const income = parseVal('das_inc');
+    const age = parseVal('das_cage');
+    const targetAge = parseVal('das_tage');
+    const tax = parseVal('das_tax') / 100;
+    const agg = parseVal('das_agg');
+    
+    const yearsToRetire = Math.max(0, targetAge - age);
+    if (yearsToRetire === 0 && !isAuto) return;
+
+    const rate = (3 + (agg / 100) * 7) / 100;
+    const monthlyRate = rate / 12;
+    const months = yearsToRetire * 12;
+    const monthlyContrib = income * 0.2; 
+
+    let fund = savings * Math.pow(1 + monthlyRate, months);
+    if (monthlyRate > 0) {
+      fund += monthlyContrib * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+    } else {
+      fund += monthlyContrib * months;
+    }
+
+    document.getElementById('res_sf').innerText = '$' + fund.toLocaleString(undefined, {maximumFractionDigits:0});
+    
+    const retireYears = 30;
+    const retireRate = 0.04 / 12;
+    const retireMonths = retireYears * 12;
+    
+    let sustIncome = 0;
+    if (retireRate > 0) {
+      sustIncome = (fund * retireRate * Math.pow(1 + retireRate, retireMonths)) / (Math.pow(1 + retireRate, retireMonths) - 1);
+    } else {
+      sustIncome = fund / retireMonths;
+    }
+
+    document.getElementById('res_req').innerText = '$' + sustIncome.toLocaleString(undefined, {maximumFractionDigits:0}) + '/mo';
+
+    const chartFill = document.querySelector('.chart-fill');
+    const chartLines = document.querySelector('.chart-lines');
+    if (chartFill && chartLines) {
+      const curve = agg > 70 ? 'Q40,60 100,0' : agg < 30 ? 'Q40,85 100,60' : 'Q40,80 100,20';
+      const fillPath = agg > 70 ? 'M0,90 Q40,60 100,0 L100,100 L0,100 Z' : agg < 30 ? 'M0,90 Q40,85 100,60 L100,100 L0,100 Z' : 'M0,90 Q40,80 100,20 L100,100 L0,100 Z';
+      
+      chartLines.style.backgroundImage = `url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,90 ${curve}" fill="none" stroke="%23208af0" stroke-width="2"/></svg>')`;
+      chartFill.style.backgroundImage = `url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="${fillPath}" fill="url(%23g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(32,138,240,0.3)"/><stop offset="100%" stop-color="rgba(32,138,240,0)"/></linearGradient></defs></svg>')`;
+    }
+  }
+
+  setTimeout(updateForecaster, 500);
+</script>
+</body>
+</html>

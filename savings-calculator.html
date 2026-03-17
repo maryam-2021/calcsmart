@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Calculate how much your savings will grow with regular deposits. Use our free savings calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Savings Calculator – Free Online Calculator">
+<meta property="og:description" content="Calculate how much your savings will grow with regular deposits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/savings-calculator.html">
+<link rel="canonical" href="https://calcsmart.com/savings-calculator.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="finance-calculators.html">Finance Calculators</a>
+      <span>›</span>
+      <span class="current">Savings Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🐷 Savings Calculator</h1>
+      <p>Calculate how much your savings will grow with regular deposits.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="init">Initial Deposit ($)</label>
+      <input type="number" id="init" placeholder="1000" >
+    </div><div class="form-group">
+      <label for="monthly">Monthly Contribution ($)</label>
+      <input type="number" id="monthly" placeholder="100" >
+    </div><div class="form-group">
+      <label for="rate">Annual Interest Rate (%)</label>
+      <input type="number" id="rate" placeholder="4" >
+    </div><div class="form-group">
+      <label for="years">Years to Save</label>
+      <input type="number" id="years" placeholder="5" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate Savings</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Savings Calculator?</h2>
+      <p>A Savings Calculator estimates how much your savings will grow over time with regular monthly contributions and compound interest.</p>
+      <div class="formula-box"><code>FV = P(1+r)ⁿ + PMT[((1+r)ⁿ-1)/r]</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Savings Calculator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Building a savings habit is the first step toward financial independence. Whether you are saving for an emergency fund, a down payment, or a dream vacation, seeing the numbers grow can provide great motivation.</p>
+      <h4>Consistency is Key</h4>
+      <p>Small amounts saved regularly often beat large amounts saved sporadically. Our calculator shows that even adding $50 a month can lead to thousands of dollars in growth over a few years thanks to the consistent contribution and interest accumulation.</p>
+      <h4>High-Yield Savings Accounts (HYSA)</h4>
+      <p>Don't leave your money in a standard savings account that pays 0.01%. Look for HYSAs that offer 4% or higher. Using our tool, you can compare the difference that a few percentage points of interest can make on your final balance.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Example: Start with $1,000, add $100/month for 5 years at 4% = $7,744.15</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">What is the power of compound interest?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Compound interest allows your interest to earn interest, leading to exponential growth over long periods.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="mortgage-calculator.html" class="related-link"><span class="r-icon">🏠</span>Mortgage Calculator</a><a href="loan-calculator.html" class="related-link"><span class="r-icon">🏦</span>Loan Calculator</a><a href="compound-interest.html" class="related-link"><span class="r-icon">📈</span>Compound Interest Calculator</a><a href="investment-calculator.html" class="related-link"><span class="r-icon">💹</span>Investment Calculator</a><a href="roi-calculator.html" class="related-link"><span class="r-icon">📊</span>ROI Calculator</a><a href="tip-calculator.html" class="related-link"><span class="r-icon">🍽️</span>Tip Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const P = parseFloat(v('init')), PMT = parseFloat(v('monthly'));
+  const r = parseFloat(v('rate'))/100/12, n = parseFloat(v('years'))*12;
+  if(isNaN(P)||isNaN(PMT)||isNaN(r)||isNaN(n)) return alert('Please fill all fields');
+  const FV = P*Math.pow(1+r, n) + PMT * ((Math.pow(1+r, n)-1)/r);
+  const totalDep = P + (PMT*n);
+  showResult('Future Value', '$'+FV.toFixed(2), [
+    'Total Contributions: $'+totalDep.toFixed(2),
+    'Interest Earned: $'+(FV-totalDep).toFixed(2)
+  ]);
+}
+</script>
+</body>
+</html>

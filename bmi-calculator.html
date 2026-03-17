@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Calculate your Body Mass Index and find your healthy weight range. Use our free bmi calculator online — instant results, no sign-up.">
+<meta property="og:title" content="BMI Calculator – Free Online Calculator">
+<meta property="og:description" content="Calculate your Body Mass Index and find your healthy weight range.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/bmi-calculator.html">
+<link rel="canonical" href="https://calcsmart.com/bmi-calculator.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="health-calculators.html">Health Calculators</a>
+      <span>›</span>
+      <span class="current">BMI Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>⚖️ BMI Calculator</h1>
+      <p>Calculate your Body Mass Index and find your healthy weight range.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="weight">Weight (kg)</label>
+      <input type="number" id="weight" placeholder="70" >
+    </div><div class="form-group">
+      <label for="height">Height (cm)</label>
+      <input type="number" id="height" placeholder="175" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate BMI</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a BMI Calculator?</h2>
+      <p>BMI (Body Mass Index) is a measure of body fat based on height and weight. It is used to screen for weight categories that may lead to health problems.</p>
+      <div class="formula-box"><code>BMI = weight(kg) ÷ height²(m)</code></div>
+    </div>
+
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Example: Weight 70 kg, Height 175 cm → BMI = 70 ÷ (1.75)² = 22.9 (Normal weight)</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Is BMI accurate?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">BMI is a useful screening tool but does not directly measure body fat. Athletes may have a high BMI due to muscle mass.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What BMI is considered obese?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">A BMI of 30 or higher is classified as obese according to the World Health Organization.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is a healthy BMI?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">A BMI between 18.5 and 24.9 is considered healthy for most adults.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="calorie-calculator.html" class="related-link"><span class="r-icon">🔥</span>Calorie Calculator</a><a href="bmr-calculator.html" class="related-link"><span class="r-icon">🫀</span>BMR Calculator</a><a href="body-fat-calculator.html" class="related-link"><span class="r-icon">💪</span>Body Fat Calculator</a><a href="ideal-weight-calculator.html" class="related-link"><span class="r-icon">🎯</span>Ideal Weight Calculator</a><a href="water-intake-calculator.html" class="related-link"><span class="r-icon">💧</span>Water Intake Calculator</a><a href="pregnancy-calculator.html" class="related-link"><span class="r-icon">🤰</span>Pregnancy Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const w = parseFloat(v('weight'));
+  const h = parseFloat(v('height')) / 100;
+  if(!w||!h) return alert('Please fill all fields');
+  const bmi = w/(h*h);
+  let cat = bmi<18.5?'Underweight':bmi<25?'Normal weight':bmi<30?'Overweight':'Obese';
+  showResult('Your BMI', bmi.toFixed(1), [
+    'Category: '+cat,
+    'Healthy BMI Range: 18.5 – 24.9',
+    'Healthy Weight for Height: '+(18.5*h*h).toFixed(1)+'kg – '+(24.9*h*h).toFixed(1)+'kg'
+  ]);
+}
+</script>
+</body>
+</html>

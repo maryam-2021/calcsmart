@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INR to USD – Indian Rupee to US Dollar Converter | CalcSmart</title>
+<meta name="description" content="Convert Indian Rupee to US Dollar with our free INR/USD currency calculator. 1 INR = 0.0120 USD. Instant conversion with reference exchange rates.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.rate-table{width:100%;border-collapse:collapse}
+.rate-table th{padding:12px 16px;text-align:left;font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-color)}
+.rate-table td{padding:10px 16px;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.03)}
+.rate-table tr:hover td{background:rgba(255,255,255,0.02)}
+.pair-hero{display:flex;align-items:center;justify-content:center;gap:24px;padding:32px;background:rgba(108,92,231,0.07);border:1px solid rgba(108,92,231,0.15);border-radius:var(--radius-xl);margin-bottom:28px;flex-wrap:wrap}
+.pair-hero .currency-flag{font-size:3.5rem;line-height:1}
+.pair-hero .arrow{font-size:2rem;color:var(--accent-2)}
+.pair-hero .rate-big{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--text-primary);text-align:center}
+.pair-hero .rate-label{font-size:.8rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="finance-calculators.html">Finance</a></li>
+      <li><a href="health-calculators.html">Health</a></li>
+      <li><a href="math-calculators.html">Math</a></li>
+      <li><a href="time-calculators.html">Time</a></li>
+      <li><a href="conversion-calculators.html">Conversion</a></li>
+      <li><a href="currency-exchange.html" class="active">Currency</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="site-wrapper">
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="currency-exchange.html">Currency Exchange</a><span>›</span>
+    <span class="current">INR to USD</span>
+  </div>
+
+  <div class="calc-header">
+    <h1>🇮🇳 INR to 🇺🇸 USD Converter</h1>
+    <p>Convert Indian Rupee (INR) to US Dollar (USD) instantly. Free currency exchange calculator with indicative reference rates.</p>
+  </div>
+
+  <div class="pair-hero">
+    <div style="text-align:center">
+      <div class="currency-flag">🇮🇳</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">INR</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Indian Rupee</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center">
+      <div class="rate-big">0.0120</div>
+      <div class="rate-label">1 INR = 0.0120 USD</div>
+    </div>
+    <div class="arrow" style="transform:rotate(180deg)">→</div>
+    <div style="text-align:center">
+      <div class="currency-flag">🇺🇸</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">USD</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">US Dollar</div>
+    </div>
+  </div>
+
+  <div class="calc-widget">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt">🇮🇳 Amount in INR</label>
+        <input type="number" id="fromAmt" value="100" placeholder="Enter INR amount" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt">🇺🇸 Amount in USD</label>
+        <input type="number" id="toAmt" placeholder="Result in USD" readonly style="background:rgba(108,92,231,0.06);border-color:rgba(108,92,231,0.2)">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt2">🇺🇸 Amount in USD</label>
+        <input type="number" id="fromAmt2" value="100" placeholder="Enter USD amount" oninput="calcInv()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt2">🇮🇳 Amount in INR</label>
+        <input type="number" id="toAmt2" placeholder="Result in INR" readonly style="background:rgba(0,206,201,0.06);border-color:rgba(0,206,201,0.2)">
+      </div>
+    </div>
+    <div class="calc-result visible">
+      <div class="result-label">REFERENCE EXCHANGE RATES</div>
+      <div class="result-value" style="font-size:1.3rem">1 INR = 0.012031 USD</div>
+      <div class="result-details">
+        <span>1 USD = 83.120000 INR</span>
+        <span style="color:var(--text-muted);font-size:.8rem">⚠ Indicative reference rates — not for live trading</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>INR to USD Quick Reference Table</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>INR</th><th>USD</th></tr></thead>
+          <tbody><tr>
+      <td>🇮🇳 1 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 0.01 USD</td>
+    </tr><tr>
+      <td>🇮🇳 5 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 0.06 USD</td>
+    </tr><tr>
+      <td>🇮🇳 10 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 0.12 USD</td>
+    </tr><tr>
+      <td>🇮🇳 25 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 0.30 USD</td>
+    </tr><tr>
+      <td>🇮🇳 50 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 0.60 USD</td>
+    </tr><tr>
+      <td>🇮🇳 100 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 1.20 USD</td>
+    </tr><tr>
+      <td>🇮🇳 250 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 3.01 USD</td>
+    </tr><tr>
+      <td>🇮🇳 500 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 6.02 USD</td>
+    </tr><tr>
+      <td>🇮🇳 1,000 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 12.03 USD</td>
+    </tr><tr>
+      <td>🇮🇳 5,000 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 60.15 USD</td>
+    </tr><tr>
+      <td>🇮🇳 10,000 INR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇺🇸 120.31 USD</td>
+    </tr></tbody>
+        </table>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>USD</th><th>INR</th></tr></thead>
+          <tbody><tr>
+      <td>🇺🇸 1 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 83.12 INR</td>
+    </tr><tr>
+      <td>🇺🇸 5 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 415.60 INR</td>
+    </tr><tr>
+      <td>🇺🇸 10 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 831.20 INR</td>
+    </tr><tr>
+      <td>🇺🇸 25 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 2078.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 50 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 4156.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 100 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 8312.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 250 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 20780.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 500 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 41560.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 1,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 83120.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 5,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 415600.00 INR</td>
+    </tr><tr>
+      <td>🇺🇸 10,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇮🇳 831200.00 INR</td>
+    </tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>About Indian Rupee and US Dollar</h2>
+    <p>The <strong>Indian Rupee (INR)</strong> is a major world currency used for international trade and investment.</p>
+    <p>The <strong>US Dollar (USD)</strong> is actively traded on the global foreign exchange market.</p>
+    <div class="formula-box"><code>INR to USD = Amount × 0.012031</code></div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="margin-bottom:20px">Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-question">What is 1 INR in USD?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Based on reference rates, 1 INR (Indian Rupee) = 0.0120 USD (US Dollar). 
+      Exchange rates fluctuate constantly — check with your bank for live rates.</div></div></div>
+    <div class="faq-item"><button class="faq-question">How do I convert INR to USD?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Simply multiply the INR amount by the current exchange rate. 
+      For example: 500 INR × 0.0120 = 6.02 USD.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Does the exchange rate change?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Exchange rates fluctuate based on economic data, central bank decisions, geopolitical events, and market sentiment. Rates shown here are indicative reference values.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Is INR/USD a major currency pair?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">INR/USD is considered a minor or exotic currency pair. These pairs have lower trading volume than major pairs but are still widely exchanged.</div></div></div>
+  </div>
+
+  <div class="related-section">
+    <h2>Other INR Conversions</h2>
+    <div class="related-grid"><a href="inr-to-eur.html" class="related-link">
+      <span class="r-icon">🇪🇺</span>INR to EUR
+    </a><a href="inr-to-gbp.html" class="related-link">
+      <span class="r-icon">🇬🇧</span>INR to GBP
+    </a><a href="inr-to-jpy.html" class="related-link">
+      <span class="r-icon">🇯🇵</span>INR to JPY
+    </a><a href="inr-to-cad.html" class="related-link">
+      <span class="r-icon">🇨🇦</span>INR to CAD
+    </a><a href="inr-to-aud.html" class="related-link">
+      <span class="r-icon">🇦🇺</span>INR to AUD
+    </a><a href="inr-to-chf.html" class="related-link">
+      <span class="r-icon">🇨🇭</span>INR to CHF
+    </a><a href="inr-to-cny.html" class="related-link">
+      <span class="r-icon">🇨🇳</span>INR to CNY
+    </a><a href="inr-to-mxn.html" class="related-link">
+      <span class="r-icon">🇲🇽</span>INR to MXN
+    </a></div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+      <p>Free currency exchange calculators with indicative reference rates. Updated periodically.</p>
+    </div>
+    <div class="footer-col"><h4>Popular Pairs</h4><ul><li><a href="usd-to-eur.html">USD to EUR</a></li><li><a href="usd-to-gbp.html">USD to GBP</a></li><li><a href="usd-to-jpy.html">USD to JPY</a></li><li><a href="usd-to-cad.html">USD to CAD</a></li><li><a href="usd-to-aud.html">USD to AUD</a></li><li><a href="usd-to-inr.html">USD to INR</a></li><li><a href="usd-to-chf.html">USD to CHF</a></li><li><a href="usd-to-cny.html">USD to CNY</a></li><li><a href="eur-to-gbp.html">EUR to GBP</a></li><li><a href="eur-to-usd.html">EUR to USD</a></li></ul></div>
+    <div class="footer-col"><h4>Finance Tools</h4><ul>
+      <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+      <li><a href="compound-interest.html">Compound Interest</a></li>
+      <li><a href="roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="salary-calculator.html">Salary Calculator</a></li>
+      <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Converters</h4><ul>
+      <li><a href="currency-exchange.html">Currency Exchange</a></li>
+      <li><a href="temperature-converter.html">Temperature</a></li>
+      <li><a href="length-converter.html">Length</a></li>
+      <li><a href="weight-converter.html">Weight</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 CalcSmart. Reference rates for informational purposes only.</div>
+</footer>
+<script>document.querySelectorAll('.faq-question').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));</script>
+<script>
+const R=0.0120307988, INV=83.1200000000;
+function calc(){
+  const v=parseFloat(document.getElementById('fromAmt').value)||0;
+  document.getElementById('toAmt').value=(v*R).toFixed(4);
+}
+function calcInv(){
+  const v=parseFloat(document.getElementById('fromAmt2').value)||0;
+  document.getElementById('toAmt2').value=(v*INV).toFixed(4);
+}
+calc(); calcInv();
+</script>
+</body>
+</html>

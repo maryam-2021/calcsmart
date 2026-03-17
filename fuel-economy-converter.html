@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Economy Converter – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Convert between MPG, L/100km, and km/L fuel economy ratings. Use our free fuel economy converter online — instant results, no sign-up.">
+<meta property="og:title" content="Fuel Economy Converter – Free Online Calculator">
+<meta property="og:description" content="Convert between MPG, L/100km, and km/L fuel economy ratings.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/fuel-economy-converter.html">
+<link rel="canonical" href="https://calcsmart.com/fuel-economy-converter.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="conversion-calculators.html">Conversion Calculators</a>
+      <span>›</span>
+      <span class="current">Fuel Economy Converter</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>⛽ Fuel Economy Converter</h1>
+      <p>Convert between MPG, L/100km, and km/L fuel economy ratings.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="fe_val">Efficiency</label>
+      <input type="number" id="fe_val" placeholder="30" >
+    </div><div class="form-group"><label for="fe_f">From</label><select id="fe_f" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="mpg (us)">MPG (US)</option><option value="mpg (uk)">MPG (UK)</option><option value="l/100km">L/100km</option><option value="km/l">km/L</option></select></div><div class="form-group"><label for="fe_t">To</label><select id="fe_t" style="padding:12px 16px; border-radius:var(--radius-md); background:var(--bg-input); color:#fff; border:1px solid var(--border-color); outline:none;"><option value="l/100km">L/100km</option><option value="mpg (us)">MPG (US)</option><option value="mpg (uk)">MPG (UK)</option><option value="km/l">km/L</option></select></div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Convert Efficiency</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Fuel Economy Converter?</h2>
+      <p>Compare vehicle fuel efficiency across different international standards like MPG and Liters per 100km.</p>
+      <div class="formula-box"><code>L/100km = 235.21 / MPG (US)</code></div>
+    </div>
+
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>30 MPG (US) ≈ 7.84 L/100km.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="unit-converter.html" class="related-link"><span class="r-icon">📐</span>Unit Converter</a><a href="currency-converter.html" class="related-link"><span class="r-icon">💱</span>Currency Converter</a><a href="temperature-converter.html" class="related-link"><span class="r-icon">🌡️</span>Temperature Converter</a><a href="length-converter.html" class="related-link"><span class="r-icon">📏</span>Length Converter</a><a href="weight-converter.html" class="related-link"><span class="r-icon">⚖️</span>Weight Converter</a><a href="area-converter.html" class="related-link"><span class="r-icon">📦</span>Area Converter</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const v = parseFloat(document.getElementById('fe_val').value);
+  const f = document.getElementById('fe_f').value, t = document.getElementById('fe_t').value;
+  if(!v) return alert('Enter value');
+  let kml;
+  if(f === 'mpg (us)') kml = v * 0.425144;
+  else if(f === 'mpg (uk)') kml = v * 0.354006;
+  else if(f === 'l/100km') kml = 100 / v;
+  else kml = v;
+
+  let res;
+  if(t === 'mpg (us)') res = kml / 0.425144;
+  else if(t === 'mpg (uk)') res = kml / 0.354006;
+  else if(t === 'l/100km') res = 100 / kml;
+  else res = kml;
+
+  showResult('Efficiency', res.toFixed(2), [f + ' to ' + t]);
+}
+</script>
+</body>
+</html>

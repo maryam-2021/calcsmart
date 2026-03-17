@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUR to GBP – Euro to British Pound Converter | CalcSmart</title>
+<meta name="description" content="Convert Euro to British Pound with our free EUR/GBP currency calculator. 1 EUR = 0.8517 GBP. Instant conversion with reference exchange rates.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.rate-table{width:100%;border-collapse:collapse}
+.rate-table th{padding:12px 16px;text-align:left;font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-color)}
+.rate-table td{padding:10px 16px;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.03)}
+.rate-table tr:hover td{background:rgba(255,255,255,0.02)}
+.pair-hero{display:flex;align-items:center;justify-content:center;gap:24px;padding:32px;background:rgba(108,92,231,0.07);border:1px solid rgba(108,92,231,0.15);border-radius:var(--radius-xl);margin-bottom:28px;flex-wrap:wrap}
+.pair-hero .currency-flag{font-size:3.5rem;line-height:1}
+.pair-hero .arrow{font-size:2rem;color:var(--accent-2)}
+.pair-hero .rate-big{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--text-primary);text-align:center}
+.pair-hero .rate-label{font-size:.8rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="finance-calculators.html">Finance</a></li>
+      <li><a href="health-calculators.html">Health</a></li>
+      <li><a href="math-calculators.html">Math</a></li>
+      <li><a href="time-calculators.html">Time</a></li>
+      <li><a href="conversion-calculators.html">Conversion</a></li>
+      <li><a href="currency-exchange.html" class="active">Currency</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="site-wrapper">
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="currency-exchange.html">Currency Exchange</a><span>›</span>
+    <span class="current">EUR to GBP</span>
+  </div>
+
+  <div class="calc-header">
+    <h1>🇪🇺 EUR to 🇬🇧 GBP Converter</h1>
+    <p>Convert Euro (EUR) to British Pound (GBP) instantly. Free currency exchange calculator with indicative reference rates.</p>
+  </div>
+
+  <div class="pair-hero">
+    <div style="text-align:center">
+      <div class="currency-flag">🇪🇺</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">EUR</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Euro</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center">
+      <div class="rate-big">0.8517</div>
+      <div class="rate-label">1 EUR = 0.8517 GBP</div>
+    </div>
+    <div class="arrow" style="transform:rotate(180deg)">→</div>
+    <div style="text-align:center">
+      <div class="currency-flag">🇬🇧</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">GBP</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">British Pound</div>
+    </div>
+  </div>
+
+  <div class="calc-widget">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt">🇪🇺 Amount in EUR</label>
+        <input type="number" id="fromAmt" value="100" placeholder="Enter EUR amount" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt">🇬🇧 Amount in GBP</label>
+        <input type="number" id="toAmt" placeholder="Result in GBP" readonly style="background:rgba(108,92,231,0.06);border-color:rgba(108,92,231,0.2)">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt2">🇬🇧 Amount in GBP</label>
+        <input type="number" id="fromAmt2" value="100" placeholder="Enter GBP amount" oninput="calcInv()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt2">🇪🇺 Amount in EUR</label>
+        <input type="number" id="toAmt2" placeholder="Result in EUR" readonly style="background:rgba(0,206,201,0.06);border-color:rgba(0,206,201,0.2)">
+      </div>
+    </div>
+    <div class="calc-result visible">
+      <div class="result-label">REFERENCE EXCHANGE RATES</div>
+      <div class="result-value" style="font-size:1.3rem">1 EUR = 0.851732 GBP</div>
+      <div class="result-details">
+        <span>1 GBP = 1.174079 EUR</span>
+        <span style="color:var(--text-muted);font-size:.8rem">⚠ Indicative reference rates — not for live trading</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>EUR to GBP Quick Reference Table</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>EUR</th><th>GBP</th></tr></thead>
+          <tbody><tr>
+      <td>🇪🇺 1 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 0.85 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 5 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 4.26 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 10 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 8.52 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 25 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 21.29 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 50 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 42.59 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 100 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 85.17 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 250 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 212.93 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 500 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 425.87 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 1,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 851.73 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 5,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 4258.66 GBP</td>
+    </tr><tr>
+      <td>🇪🇺 10,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇬🇧 8517.32 GBP</td>
+    </tr></tbody>
+        </table>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>GBP</th><th>EUR</th></tr></thead>
+          <tbody><tr>
+      <td>🇬🇧 1 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 1.17 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 5 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 5.87 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 10 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 11.74 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 25 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 29.35 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 50 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 58.70 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 100 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 117.41 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 250 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 293.52 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 500 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 587.04 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 1,000 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 1174.08 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 5,000 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 5870.39 EUR</td>
+    </tr><tr>
+      <td>🇬🇧 10,000 GBP</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 11740.79 EUR</td>
+    </tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>About Euro and British Pound</h2>
+    <p>The <strong>Euro (EUR)</strong> is the official currency of the Eurozone, used by 20 member states of the European Union.</p>
+    <p>The <strong>British Pound (GBP)</strong> remains influential in global financial markets despite Brexit.</p>
+    <div class="formula-box"><code>EUR to GBP = Amount × 0.851732</code></div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="margin-bottom:20px">Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-question">What is 1 EUR in GBP?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Based on reference rates, 1 EUR (Euro) = 0.8517 GBP (British Pound). 
+      Exchange rates fluctuate constantly — check with your bank for live rates.</div></div></div>
+    <div class="faq-item"><button class="faq-question">How do I convert EUR to GBP?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Simply multiply the EUR amount by the current exchange rate. 
+      For example: 500 EUR × 0.8517 = 425.87 GBP.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Does the exchange rate change?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Exchange rates fluctuate based on economic data, central bank decisions, geopolitical events, and market sentiment. Rates shown here are indicative reference values.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Is EUR/GBP a major currency pair?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes, EUR/GBP is considered a major forex pair. Major pairs include USD, EUR, GBP, JPY, CHF, CAD, and AUD. They are the most liquid and widely traded.</div></div></div>
+  </div>
+
+  <div class="related-section">
+    <h2>Other EUR Conversions</h2>
+    <div class="related-grid"><a href="eur-to-usd.html" class="related-link">
+      <span class="r-icon">🇺🇸</span>EUR to USD
+    </a><a href="eur-to-jpy.html" class="related-link">
+      <span class="r-icon">🇯🇵</span>EUR to JPY
+    </a><a href="eur-to-cad.html" class="related-link">
+      <span class="r-icon">🇨🇦</span>EUR to CAD
+    </a><a href="eur-to-aud.html" class="related-link">
+      <span class="r-icon">🇦🇺</span>EUR to AUD
+    </a><a href="eur-to-chf.html" class="related-link">
+      <span class="r-icon">🇨🇭</span>EUR to CHF
+    </a><a href="eur-to-cny.html" class="related-link">
+      <span class="r-icon">🇨🇳</span>EUR to CNY
+    </a><a href="eur-to-inr.html" class="related-link">
+      <span class="r-icon">🇮🇳</span>EUR to INR
+    </a><a href="eur-to-mxn.html" class="related-link">
+      <span class="r-icon">🇲🇽</span>EUR to MXN
+    </a></div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+      <p>Free currency exchange calculators with indicative reference rates. Updated periodically.</p>
+    </div>
+    <div class="footer-col"><h4>Popular Pairs</h4><ul><li><a href="usd-to-eur.html">USD to EUR</a></li><li><a href="usd-to-gbp.html">USD to GBP</a></li><li><a href="usd-to-jpy.html">USD to JPY</a></li><li><a href="usd-to-cad.html">USD to CAD</a></li><li><a href="usd-to-aud.html">USD to AUD</a></li><li><a href="usd-to-inr.html">USD to INR</a></li><li><a href="usd-to-chf.html">USD to CHF</a></li><li><a href="usd-to-cny.html">USD to CNY</a></li><li><a href="eur-to-gbp.html">EUR to GBP</a></li><li><a href="eur-to-usd.html">EUR to USD</a></li></ul></div>
+    <div class="footer-col"><h4>Finance Tools</h4><ul>
+      <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+      <li><a href="compound-interest.html">Compound Interest</a></li>
+      <li><a href="roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="salary-calculator.html">Salary Calculator</a></li>
+      <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Converters</h4><ul>
+      <li><a href="currency-exchange.html">Currency Exchange</a></li>
+      <li><a href="temperature-converter.html">Temperature</a></li>
+      <li><a href="length-converter.html">Length</a></li>
+      <li><a href="weight-converter.html">Weight</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 CalcSmart. Reference rates for informational purposes only.</div>
+</footer>
+<script>document.querySelectorAll('.faq-question').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));</script>
+<script>
+const R=0.8517316017, INV=1.1740787802;
+function calc(){
+  const v=parseFloat(document.getElementById('fromAmt').value)||0;
+  document.getElementById('toAmt').value=(v*R).toFixed(4);
+}
+function calcInv(){
+  const v=parseFloat(document.getElementById('fromAmt2').value)||0;
+  document.getElementById('toAmt2').value=(v*INV).toFixed(4);
+}
+calc(); calcInv();
+</script>
+</body>
+</html>

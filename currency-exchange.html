@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Exchange Calculator – Convert Any Currency | CalcSmart</title>
+<meta name="description" content="Free currency exchange calculator. Convert between 30+ world currencies instantly. View live indicative rates for USD, EUR, GBP, JPY, CAD, AUD and more.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.rate-table{width:100%;border-collapse:collapse;margin-top:8px}
+.rate-table th{padding:12px 16px;text-align:left;font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-color)}
+.rate-table td{padding:11px 16px;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.03)}
+.rate-table tr:hover td{background:rgba(255,255,255,0.02);color:var(--text-primary)}
+.swap-btn{background:none;border:none;color:var(--accent-2);font-size:1.4rem;cursor:pointer;padding:0 8px;transition:transform .2s}
+.swap-btn:hover{transform:rotate(180deg)}
+.currency-select-wrap{display:flex;align-items:center;gap:8px;flex:1}
+.converter-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="finance-calculators.html">Finance</a></li>
+      <li><a href="health-calculators.html">Health</a></li>
+      <li><a href="math-calculators.html">Math</a></li>
+      <li><a href="time-calculators.html">Time</a></li>
+      <li><a href="conversion-calculators.html">Conversion</a></li>
+      <li><a href="currency-exchange.html" class="active">Currency</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="site-wrapper">
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span class="current">Currency Exchange</span>
+  </div>
+
+  <div class="calc-header">
+    <h1>💱 Currency Exchange Calculator</h1>
+    <p>Convert between 30+ world currencies using indicative reference rates. Fast, free, no sign-up.</p>
+  </div>
+
+  <div class="calc-widget">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt">Amount</label>
+        <input type="number" id="fromAmt" value="100" placeholder="Amount" oninput="convertCurrency()">
+      </div>
+      <div style="padding-bottom:2px">
+        <button class="swap-btn" onclick="swapCurrencies()" title="Swap currencies">⇄</button>
+      </div>
+      <div class="form-group">
+        <label for="toAmt">Converted Amount</label>
+        <input type="number" id="toAmt" placeholder="Result" readonly style="background:rgba(108,92,231,0.06);border-color:rgba(108,92,231,0.2)">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+      <div class="form-group">
+        <label for="fromCur">From Currency</label>
+        <select id="fromCur" onchange="convertCurrency()"><option value="USD">🇺🇸 USD – US Dollar</option><option value="EUR">🇪🇺 EUR – Euro</option><option value="GBP">🇬🇧 GBP – British Pound</option><option value="JPY">🇯🇵 JPY – Japanese Yen</option><option value="CAD">🇨🇦 CAD – Canadian Dollar</option><option value="AUD">🇦🇺 AUD – Australian Dollar</option><option value="CHF">🇨🇭 CHF – Swiss Franc</option><option value="CNY">🇨🇳 CNY – Chinese Yuan</option><option value="INR">🇮🇳 INR – Indian Rupee</option><option value="MXN">🇲🇽 MXN – Mexican Peso</option><option value="BRL">🇧🇷 BRL – Brazilian Real</option><option value="SGD">🇸🇬 SGD – Singapore Dollar</option><option value="NZD">🇳🇿 NZD – New Zealand Dollar</option><option value="HKD">🇭🇰 HKD – Hong Kong Dollar</option><option value="SEK">🇸🇪 SEK – Swedish Krona</option><option value="NOK">🇳🇴 NOK – Norwegian Krone</option><option value="DKK">🇩🇰 DKK – Danish Krone</option><option value="ZAR">🇿🇦 ZAR – South African Rand</option><option value="AED">🇦🇪 AED – UAE Dirham</option><option value="SAR">🇸🇦 SAR – Saudi Riyal</option><option value="KRW">🇰🇷 KRW – South Korean Won</option><option value="TRY">🇹🇷 TRY – Turkish Lira</option><option value="THB">🇹🇭 THB – Thai Baht</option><option value="PLN">🇵🇱 PLN – Polish Zloty</option><option value="CZK">🇨🇿 CZK – Czech Koruna</option><option value="HUF">🇭🇺 HUF – Hungarian Forint</option><option value="ILS">🇮🇱 ILS – Israeli Shekel</option><option value="PHP">🇵🇭 PHP – Philippine Peso</option><option value="MYR">🇲🇾 MYR – Malaysian Ringgit</option><option value="IDR">🇮🇩 IDR – Indonesian Rupiah</option></select>
+      </div>
+      <div class="form-group">
+        <label for="toCur">To Currency</label>
+        <select id="toCur" onchange="convertCurrency()"><option value="USD">🇺🇸 USD – US Dollar</option><option value="EUR" selected>🇪🇺 EUR – Euro</option><option value="GBP">🇬🇧 GBP – British Pound</option><option value="JPY">🇯🇵 JPY – Japanese Yen</option><option value="CAD">🇨🇦 CAD – Canadian Dollar</option><option value="AUD">🇦🇺 AUD – Australian Dollar</option><option value="CHF">🇨🇭 CHF – Swiss Franc</option><option value="CNY">🇨🇳 CNY – Chinese Yuan</option><option value="INR">🇮🇳 INR – Indian Rupee</option><option value="MXN">🇲🇽 MXN – Mexican Peso</option><option value="BRL">🇧🇷 BRL – Brazilian Real</option><option value="SGD">🇸🇬 SGD – Singapore Dollar</option><option value="NZD">🇳🇿 NZD – New Zealand Dollar</option><option value="HKD">🇭🇰 HKD – Hong Kong Dollar</option><option value="SEK">🇸🇪 SEK – Swedish Krona</option><option value="NOK">🇳🇴 NOK – Norwegian Krone</option><option value="DKK">🇩🇰 DKK – Danish Krone</option><option value="ZAR">🇿🇦 ZAR – South African Rand</option><option value="AED">🇦🇪 AED – UAE Dirham</option><option value="SAR">🇸🇦 SAR – Saudi Riyal</option><option value="KRW">🇰🇷 KRW – South Korean Won</option><option value="TRY">🇹🇷 TRY – Turkish Lira</option><option value="THB">🇹🇭 THB – Thai Baht</option><option value="PLN">🇵🇱 PLN – Polish Zloty</option><option value="CZK">🇨🇿 CZK – Czech Koruna</option><option value="HUF">🇭🇺 HUF – Hungarian Forint</option><option value="ILS">🇮🇱 ILS – Israeli Shekel</option><option value="PHP">🇵🇭 PHP – Philippine Peso</option><option value="MYR">🇲🇾 MYR – Malaysian Ringgit</option><option value="IDR">🇮🇩 IDR – Indonesian Rupiah</option></select>
+      </div>
+    </div>
+    <div class="calc-result visible" id="calcResult">
+      <div class="result-label">EXCHANGE RATE</div>
+      <div class="result-value" id="rateDisplay">1 USD = 0.924 EUR</div>
+      <div class="result-details" id="rateDetails">
+        <span>Inverse: 1 EUR = 1.0823 USD</span>
+        <span style="color:var(--text-muted);font-size:.8rem;margin-top:4px">⚠ Indicative reference rates — not for live trading</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section"><h2>Popular Currency Pairs</h2></div>
+  <div class="tools-grid"><a href="usd-to-eur.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇪🇺</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Euro</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 0.9240 EUR</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-gbp.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇬🇧</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to British Pound</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 0.7870 GBP</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-jpy.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇯🇵</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Japanese Yen</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 149.5000 JPY</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-cad.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇨🇦</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Canadian Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 1.3620 CAD</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-aud.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇦🇺</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Australian Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 1.5340 AUD</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-inr.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇮🇳</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Indian Rupee</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 83.1200 INR</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-chf.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇨🇭</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Swiss Franc</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 0.9020 CHF</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-cny.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇨🇳</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Chinese Yuan</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 7.2410 CNY</p>
+      <span class="arrow">→</span>
+    </a><a href="eur-to-gbp.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇪🇺</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇬🇧</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Euro to British Pound</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 EUR = 0.8517 GBP</p>
+      <span class="arrow">→</span>
+    </a><a href="eur-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇪🇺</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Euro to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 EUR = 1.0823 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="eur-to-jpy.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇪🇺</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇯🇵</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Euro to Japanese Yen</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 EUR = 161.7965 JPY</p>
+      <span class="arrow">→</span>
+    </a><a href="gbp-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇬🇧</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">British Pound to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 GBP = 1.2706 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="gbp-to-eur.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇬🇧</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇪🇺</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">British Pound to Euro</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 GBP = 1.1741 EUR</p>
+      <span class="arrow">→</span>
+    </a><a href="gbp-to-jpy.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇬🇧</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇯🇵</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">British Pound to Japanese Yen</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 GBP = 189.9619 JPY</p>
+      <span class="arrow">→</span>
+    </a><a href="cad-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇨🇦</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Canadian Dollar to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 CAD = 0.7342 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="aud-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇦🇺</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Australian Dollar to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 AUD = 0.6519 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="jpy-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇯🇵</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Japanese Yen to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 JPY = 0.0067 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="inr-to-usd.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇮🇳</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇺🇸</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">Indian Rupee to US Dollar</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 INR = 0.0120 USD</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-mxn.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇲🇽</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Mexican Peso</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 17.1500 MXN</p>
+      <span class="arrow">→</span>
+    </a><a href="usd-to-brl.html" class="tool-card" style="min-height:unset;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="font-size:1.4rem">🇺🇸</span>
+        <span style="color:var(--accent-2);font-size:1rem">→</span>
+        <span style="font-size:1.4rem">🇧🇷</span>
+      </div>
+      <h3 style="font-size:.95rem;margin-bottom:4px">US Dollar to Brazilian Real</h3>
+      <p style="font-size:.8rem;font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1 USD = 4.9700 BRL</p>
+      <span class="arrow">→</span>
+    </a></div>
+
+  <div class="content-section">
+    <h2>All Currency Reference Rates (vs USD)</h2>
+    <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden;overflow-x:auto">
+      <table class="rate-table">
+        <thead><tr><th>Currency</th><th>Name</th><th>1 USD =</th><th>1 unit = USD</th></tr></thead>
+        <tbody><tr>
+      <td>🇺🇸 USD</td>
+      <td>US Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1.0000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">1.0000</td>
+    </tr><tr>
+      <td>🇪🇺 EUR</td>
+      <td>Euro</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">0.9240</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">1.0823</td>
+    </tr><tr>
+      <td>🇬🇧 GBP</td>
+      <td>British Pound</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">0.7870</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">1.2706</td>
+    </tr><tr>
+      <td>🇯🇵 JPY</td>
+      <td>Japanese Yen</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">149.5000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0067</td>
+    </tr><tr>
+      <td>🇨🇦 CAD</td>
+      <td>Canadian Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1.3620</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.7342</td>
+    </tr><tr>
+      <td>🇦🇺 AUD</td>
+      <td>Australian Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1.5340</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.6519</td>
+    </tr><tr>
+      <td>🇨🇭 CHF</td>
+      <td>Swiss Franc</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">0.9020</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">1.1086</td>
+    </tr><tr>
+      <td>🇨🇳 CNY</td>
+      <td>Chinese Yuan</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">7.2410</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.1381</td>
+    </tr><tr>
+      <td>🇮🇳 INR</td>
+      <td>Indian Rupee</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">83.1200</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0120</td>
+    </tr><tr>
+      <td>🇲🇽 MXN</td>
+      <td>Mexican Peso</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">17.1500</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0583</td>
+    </tr><tr>
+      <td>🇧🇷 BRL</td>
+      <td>Brazilian Real</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">4.9700</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2012</td>
+    </tr><tr>
+      <td>🇸🇬 SGD</td>
+      <td>Singapore Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1.3430</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.7446</td>
+    </tr><tr>
+      <td>🇳🇿 NZD</td>
+      <td>New Zealand Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1.6540</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.6046</td>
+    </tr><tr>
+      <td>🇭🇰 HKD</td>
+      <td>Hong Kong Dollar</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">7.8220</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.1278</td>
+    </tr><tr>
+      <td>🇸🇪 SEK</td>
+      <td>Swedish Krona</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">10.4900</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0953</td>
+    </tr><tr>
+      <td>🇳🇴 NOK</td>
+      <td>Norwegian Krone</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">10.5800</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0945</td>
+    </tr><tr>
+      <td>🇩🇰 DKK</td>
+      <td>Danish Krone</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">6.8900</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.1451</td>
+    </tr><tr>
+      <td>🇿🇦 ZAR</td>
+      <td>South African Rand</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">18.7400</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0534</td>
+    </tr><tr>
+      <td>🇦🇪 AED</td>
+      <td>UAE Dirham</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">3.6730</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2723</td>
+    </tr><tr>
+      <td>🇸🇦 SAR</td>
+      <td>Saudi Riyal</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">3.7510</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2666</td>
+    </tr><tr>
+      <td>🇰🇷 KRW</td>
+      <td>South Korean Won</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">1328.0000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0008</td>
+    </tr><tr>
+      <td>🇹🇷 TRY</td>
+      <td>Turkish Lira</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">32.1800</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0311</td>
+    </tr><tr>
+      <td>🇹🇭 THB</td>
+      <td>Thai Baht</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">35.1200</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0285</td>
+    </tr><tr>
+      <td>🇵🇱 PLN</td>
+      <td>Polish Zloty</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">4.0300</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2481</td>
+    </tr><tr>
+      <td>🇨🇿 CZK</td>
+      <td>Czech Koruna</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">23.3000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0429</td>
+    </tr><tr>
+      <td>🇭🇺 HUF</td>
+      <td>Hungarian Forint</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">362.0000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0028</td>
+    </tr><tr>
+      <td>🇮🇱 ILS</td>
+      <td>Israeli Shekel</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">3.7100</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2695</td>
+    </tr><tr>
+      <td>🇵🇭 PHP</td>
+      <td>Philippine Peso</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">55.8000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0179</td>
+    </tr><tr>
+      <td>🇲🇾 MYR</td>
+      <td>Malaysian Ringgit</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">4.7100</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.2123</td>
+    </tr><tr>
+      <td>🇮🇩 IDR</td>
+      <td>Indonesian Rupiah</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">15620.0000</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">0.0001</td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>What is a Currency Exchange Calculator?</h2>
+    <p>A currency exchange calculator converts a sum of money from one currency to another using a defined exchange rate. Exchange rates represent how much one currency is worth relative to another and fluctuate constantly in the foreign exchange (forex) market.</p>
+    <div class="formula-box"><code>Converted Amount = Amount × (Target Rate ÷ Base Rate)</code></div>
+  </div>
+
+  <div class="content-section">
+    <h2>Example</h2>
+    <div class="example-box">
+      <div class="example-title">📌 Example Calculation</div>
+      <p>Convert $500 USD to EUR at a rate of 0.924:<br>500 × 0.924 = <strong>€462.00</strong></p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="margin-bottom:20px">Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-question">What is an exchange rate?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">An exchange rate is the price at which one currency can be exchanged for another. For example, a USD/EUR rate of 0.92 means 1 US Dollar buys 0.92 Euros.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Are these rates live?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The rates shown are indicative reference rates updated periodically. For live trading rates, always check your bank or a licensed forex broker.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Why is the rate different at my bank?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Banks and money changers add a margin or fee on top of the mid-market rate. This spread is how they make a profit on currency exchange.</div></div></div>
+    <div class="faq-item"><button class="faq-question">What is the mid-market rate?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The mid-market rate (also called the interbank rate) is the midpoint between the buy and sell prices of a currency pair. It's the fairest rate and the one shown on this calculator.</div></div></div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+      <p>Free currency exchange calculators with indicative reference rates. Updated periodically.</p>
+    </div>
+    <div class="footer-col"><h4>Popular Pairs</h4><ul><li><a href="usd-to-eur.html">USD to EUR</a></li><li><a href="usd-to-gbp.html">USD to GBP</a></li><li><a href="usd-to-jpy.html">USD to JPY</a></li><li><a href="usd-to-cad.html">USD to CAD</a></li><li><a href="usd-to-aud.html">USD to AUD</a></li><li><a href="usd-to-inr.html">USD to INR</a></li><li><a href="usd-to-chf.html">USD to CHF</a></li><li><a href="usd-to-cny.html">USD to CNY</a></li><li><a href="eur-to-gbp.html">EUR to GBP</a></li><li><a href="eur-to-usd.html">EUR to USD</a></li></ul></div>
+    <div class="footer-col"><h4>Finance Tools</h4><ul>
+      <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+      <li><a href="compound-interest.html">Compound Interest</a></li>
+      <li><a href="roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="salary-calculator.html">Salary Calculator</a></li>
+      <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Converters</h4><ul>
+      <li><a href="currency-exchange.html">Currency Exchange</a></li>
+      <li><a href="temperature-converter.html">Temperature</a></li>
+      <li><a href="length-converter.html">Length</a></li>
+      <li><a href="weight-converter.html">Weight</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 CalcSmart. Reference rates for informational purposes only.</div>
+</footer>
+<script>document.querySelectorAll('.faq-question').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));</script>
+<script>
+const RATES={USD:1,EUR:0.924,GBP:0.787,JPY:149.5,CAD:1.362,AUD:1.534,CHF:0.902,CNY:7.241,INR:83.12,MXN:17.15,BRL:4.97,SGD:1.343,NZD:1.654,HKD:7.822,SEK:10.49,NOK:10.58,DKK:6.89,ZAR:18.74,AED:3.673,SAR:3.751,KRW:1328,TRY:32.18,THB:35.12,PLN:4.03,CZK:23.3,HUF:362,ILS:3.71,PHP:55.8,MYR:4.71,IDR:15620};
+function convertCurrency(){
+  const amt=parseFloat(document.getElementById('fromAmt').value)||0;
+  const from=document.getElementById('fromCur').value;
+  const to=document.getElementById('toCur').value;
+  const rate=RATES[to]/RATES[from];
+  const result=amt*rate;
+  document.getElementById('toAmt').value=result.toFixed(4);
+  document.getElementById('rateDisplay').textContent='1 '+from+' = '+rate.toFixed(6)+' '+to;
+  document.getElementById('rateDetails').innerHTML=
+    '<span>Inverse: 1 '+to+' = '+(1/rate).toFixed(6)+' '+from+'</span>'+
+    '<span style="color:var(--text-muted);font-size:.8rem;margin-top:4px">⚠ Indicative reference rates — not for live trading</span>';
+}
+function swapCurrencies(){
+  const f=document.getElementById('fromCur'),t=document.getElementById('toCur');
+  const tmp=f.value; f.value=t.value; t.value=tmp; convertCurrency();
+}
+convertCurrency();
+</script>
+</body>
+</html>

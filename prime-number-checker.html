@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Number Checker – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Check if any number is prime and find prime factors instantly. Use our free prime number checker online — instant results, no sign-up.">
+<meta property="og:title" content="Prime Number Checker – Free Online Calculator">
+<meta property="og:description" content="Check if any number is prime and find prime factors instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/prime-number-checker.html">
+<link rel="canonical" href="https://calcsmart.com/prime-number-checker.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span>›</span>
+      <span class="current">Prime Number Checker</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🔑 Prime Number Checker</h1>
+      <p>Check if any number is prime and find prime factors instantly.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="num">Enter Number</label>
+      <input type="number" id="num" placeholder="17" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Check Primality</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Prime Number Checker?</h2>
+      <p>The Prime Number Checker instantly determines if a number is prime or composite and provides its full list of factors.</p>
+      <div class="formula-box"><code>n is prime if it has exactly 2 factors.</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Prime Number Checker</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Prime numbers are the "atoms" of mathematics. A <strong>prime number</strong> is a whole number greater than 1 that cannot be formed by multiplying two smaller whole numbers. Numbers that are not prime are called <strong>composite numbers</strong>.</p>
+      <h4>Fundamental Theorem of Arithmetic</h4>
+      <p>This theorem states that every integer greater than 1 either is prime itself or is the product of prime numbers, and that this product is unique. For example, 12 = 2 × 2 × 3.</p>
+      <h4>Importance in Cryptography</h4>
+      <p>Prime numbers are essential for modern digital security. The RSA encryption algorithm, which secures your credit card transactions and private messages, relies on the fact that it is very easy to multiply two large prime numbers but extremely difficult for a computer to factor the result back into the original primes.</p>
+      <h4>How the Check Works</h4>
+      <p>To check if a number (n) is prime, we only need to test divisibility by integers up to the square root of n (√n). If no factor is found by that point, the number is guaranteed to be prime.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>17 is prime. 15 is composite (3 × 5). 1 is neither prime nor composite.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Is 1 a prime number?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">No. By modern definition, prime numbers must have exactly two distinct factors: 1 and itself. Since 1 only has one factor (itself), it is not prime.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the only even prime number?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">2 is the only even prime number. All other even numbers are divisible by 2 and therefore composite.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Are there infinitely many primes?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Euclid proved this over 2,000 years ago.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="percentage-calculator.html" class="related-link"><span class="r-icon">💯</span>Percentage Calculator</a><a href="fraction-calculator.html" class="related-link"><span class="r-icon">½</span>Fraction Calculator</a><a href="average-calculator.html" class="related-link"><span class="r-icon">📉</span>Average Calculator</a><a href="probability-calculator.html" class="related-link"><span class="r-icon">🎲</span>Probability Calculator</a><a href="lcm-hcf-calculator.html" class="related-link"><span class="r-icon">🔢</span>LCM & GCF Calculator</a><a href="exponent-calculator.html" class="related-link"><span class="r-icon">xⁿ</span>Exponent Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const n = parseInt(v('num'));
+  if(isNaN(n)) return alert('Please enter a number');
+  if(n < 2) return showResult('Not Prime', n + ' is not prime', ['Primes must be 2 or greater']);
+  if(n > 1000000) return alert('Number too large for instant check');
+  
+  let isPrime = true;
+  let factor = -1;
+  const sqrt = Math.sqrt(n);
+  for(let i=2; i<=sqrt; i++) {
+    if(n % i === 0) { isPrime = false; factor = i; break; }
+  }
+  
+  showResult(isPrime?'Prime!':'Not Prime', n + (isPrime?' is prime':' is composite'), [
+    isPrime ? 'Only divisible by 1 and itself' : 'Smallest factor: '+factor,
+    'Factors: '+(isPrime ? '1, '+n : getFactors(n).join(', '))
+  ]);
+}
+function getFactors(n){
+  let f = [];
+  for(let i=1; i<=Math.sqrt(n); i++) if(n%i===0){ f.push(i); if(i*i!==n) f.push(n/i); }
+  return f.sort((a,b)=>a-b);
+}
+</script>
+</body>
+</html>

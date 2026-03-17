@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roman Numeral Converter – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Convert numbers to Roman numerals and vice versa. Use our free roman numeral converter online — instant results, no sign-up.">
+<meta property="og:title" content="Roman Numeral Converter – Free Online Calculator">
+<meta property="og:description" content="Convert numbers to Roman numerals and vice versa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/roman-numeral-converter.html">
+<link rel="canonical" href="https://calcsmart.com/roman-numeral-converter.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span>›</span>
+      <span class="current">Roman Numeral Converter</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>Ⅻ Roman Numeral Converter</h1>
+      <p>Convert numbers to Roman numerals and vice versa.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="input">Arabic Number (e.g. 2024) or Roman Numeral (e.g. MMXXIV)</label>
+      <input type="text" id="input" placeholder="1994 or MCMXCIV" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Convert Numeral</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Roman Numeral Converter?</h2>
+      <p>The Roman Numeral Converter translates standard Arabic numerals into ancient Roman characters and vice versa with instant validation.</p>
+      <div class="formula-box"><code>M=1000, D=500, C=100, L=50, X=10, V=5, I=1</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Roman Numeral Converter</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>Roman numerals originated in ancient Rome and remained the standard way of writing numbers throughout Europe well into the late Middle Ages. Today, they are still used for clock faces, book chapters, movie sequels, and sporting events like the Super Bowl.</p>
+      <h4>How to Read Roman Numerals</h4>
+      <p>Roman numerals are based on seven symbols. When a smaller symbol appears <em>after</em> a larger one, you add them (VI = 5 + 1 = 6). When a smaller symbol appears <em>before</em> a larger one, you subtract it (IV = 5 - 1 = 4).</p>
+      <h4>The Standard Symbols</h4>
+      <ul>
+        <li><strong>I:</strong> 1</li>
+        <li><strong>V:</strong> 5</li>
+        <li><strong>X:</strong> 10</li>
+        <li><strong>L:</strong> 50</li>
+        <li><strong>C:</strong> 100</li>
+        <li><strong>D:</strong> 500</li>
+        <li><strong>M:</strong> 1,000</li>
+      </ul>
+      <h4>Common Constraints</h4>
+      <p>In the standard modern style, you shouldn't use more than three of the same symbol in a row (e.g., 4 is IV, not IIII). This restricts the standard Roman numeral system to numbers between 1 and 3,999.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>2024 = MMXXIV. 49 = XLIX (50 - 10 + 10 - 1).</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Why is there no zero in Roman numerals?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">The Romans didn't have a symbol for zero as a placeholder or a value. They used the word "nulla" if they needed to express the concept of nothing.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the largest Roman numeral?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Using standard characters, 3,999 (MMMCMXCIX) is the largest. Larger numbers required special bar symbols over letters to multiply them by 1,000.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Is IIII or IV correct for 4?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Both have been used historically. You will often see "IIII" on clocks for visual symmetry, but "IV" is the standard subtractive notation taught in schools today.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="percentage-calculator.html" class="related-link"><span class="r-icon">💯</span>Percentage Calculator</a><a href="fraction-calculator.html" class="related-link"><span class="r-icon">½</span>Fraction Calculator</a><a href="average-calculator.html" class="related-link"><span class="r-icon">📉</span>Average Calculator</a><a href="probability-calculator.html" class="related-link"><span class="r-icon">🎲</span>Probability Calculator</a><a href="lcm-hcf-calculator.html" class="related-link"><span class="r-icon">🔢</span>LCM & GCF Calculator</a><a href="exponent-calculator.html" class="related-link"><span class="r-icon">xⁿ</span>Exponent Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  let val = v('input').toUpperCase().trim();
+  if(!val) return alert('Enter a value');
+  const map = {M:1000, CM:900, D:500, CD:400, C:100, XC:90, L:50, XL:40, X:10, IX:9, V:5, IV:4, I:1};
+  if(/^[0-9]+$/.test(val)) {
+    let num = parseInt(val);
+    if(num <= 0 || num > 3999) return alert('Please enter a number between 1 and 3999');
+    let res = '';
+    for(let k in map) {
+      while(num >= map[k]) { res += k; num -= map[k]; }
+    }
+    showResult('Roman Numeral', res, ['Decimal Value: '+val]);
+  } else {
+    if(!/^[MDCLXVI]+$/.test(val)) return alert('Invalid Roman Numeral characters');
+    let num = 0;
+    let tempVal = val;
+    for(let k in map) {
+      while(tempVal.indexOf(k) === 0) { num += map[k]; tempVal = tempVal.substring(k.length); }
+    }
+    // Validate by converting back
+    let check = '';
+    let checkNum = num;
+    for(let k in map) { while(checkNum >= map[k]) { check += k; checkNum -= map[k]; } }
+    if(check !== val) return alert('Invalid Roman Numeral sequence');
+    
+    showResult('Standard Number', num.toLocaleString(), ['Roman: '+val]);
+  }
+}
+</script>
+</body>
+</html>

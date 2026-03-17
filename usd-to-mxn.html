@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USD to MXN – US Dollar to Mexican Peso Converter | CalcSmart</title>
+<meta name="description" content="Convert US Dollar to Mexican Peso with our free USD/MXN currency calculator. 1 USD = 17.1500 MXN. Instant conversion with reference exchange rates.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.rate-table{width:100%;border-collapse:collapse}
+.rate-table th{padding:12px 16px;text-align:left;font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-color)}
+.rate-table td{padding:10px 16px;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.03)}
+.rate-table tr:hover td{background:rgba(255,255,255,0.02)}
+.pair-hero{display:flex;align-items:center;justify-content:center;gap:24px;padding:32px;background:rgba(108,92,231,0.07);border:1px solid rgba(108,92,231,0.15);border-radius:var(--radius-xl);margin-bottom:28px;flex-wrap:wrap}
+.pair-hero .currency-flag{font-size:3.5rem;line-height:1}
+.pair-hero .arrow{font-size:2rem;color:var(--accent-2)}
+.pair-hero .rate-big{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--text-primary);text-align:center}
+.pair-hero .rate-label{font-size:.8rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="finance-calculators.html">Finance</a></li>
+      <li><a href="health-calculators.html">Health</a></li>
+      <li><a href="math-calculators.html">Math</a></li>
+      <li><a href="time-calculators.html">Time</a></li>
+      <li><a href="conversion-calculators.html">Conversion</a></li>
+      <li><a href="currency-exchange.html" class="active">Currency</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="site-wrapper">
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="currency-exchange.html">Currency Exchange</a><span>›</span>
+    <span class="current">USD to MXN</span>
+  </div>
+
+  <div class="calc-header">
+    <h1>🇺🇸 USD to 🇲🇽 MXN Converter</h1>
+    <p>Convert US Dollar (USD) to Mexican Peso (MXN) instantly. Free currency exchange calculator with indicative reference rates.</p>
+  </div>
+
+  <div class="pair-hero">
+    <div style="text-align:center">
+      <div class="currency-flag">🇺🇸</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">USD</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">US Dollar</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center">
+      <div class="rate-big">17.1500</div>
+      <div class="rate-label">1 USD = 17.1500 MXN</div>
+    </div>
+    <div class="arrow" style="transform:rotate(180deg)">→</div>
+    <div style="text-align:center">
+      <div class="currency-flag">🇲🇽</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">MXN</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Mexican Peso</div>
+    </div>
+  </div>
+
+  <div class="calc-widget">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt">🇺🇸 Amount in USD</label>
+        <input type="number" id="fromAmt" value="100" placeholder="Enter USD amount" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt">🇲🇽 Amount in MXN</label>
+        <input type="number" id="toAmt" placeholder="Result in MXN" readonly style="background:rgba(108,92,231,0.06);border-color:rgba(108,92,231,0.2)">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt2">🇲🇽 Amount in MXN</label>
+        <input type="number" id="fromAmt2" value="100" placeholder="Enter MXN amount" oninput="calcInv()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt2">🇺🇸 Amount in USD</label>
+        <input type="number" id="toAmt2" placeholder="Result in USD" readonly style="background:rgba(0,206,201,0.06);border-color:rgba(0,206,201,0.2)">
+      </div>
+    </div>
+    <div class="calc-result visible">
+      <div class="result-label">REFERENCE EXCHANGE RATES</div>
+      <div class="result-value" style="font-size:1.3rem">1 USD = 17.150000 MXN</div>
+      <div class="result-details">
+        <span>1 MXN = 0.058309 USD</span>
+        <span style="color:var(--text-muted);font-size:.8rem">⚠ Indicative reference rates — not for live trading</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>USD to MXN Quick Reference Table</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>USD</th><th>MXN</th></tr></thead>
+          <tbody><tr>
+      <td>🇺🇸 1 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 17.15 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 5 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 85.75 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 10 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 171.50 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 25 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 428.75 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 50 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 857.50 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 100 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 1715.00 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 250 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 4287.50 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 500 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 8575.00 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 1,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 17150.00 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 5,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 85750.00 MXN</td>
+    </tr><tr>
+      <td>🇺🇸 10,000 USD</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇲🇽 171500.00 MXN</td>
+    </tr></tbody>
+        </table>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>MXN</th><th>USD</th></tr></thead>
+          <tbody><tr>
+      <td>🇲🇽 1 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 0.06 USD</td>
+    </tr><tr>
+      <td>🇲🇽 5 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 0.29 USD</td>
+    </tr><tr>
+      <td>🇲🇽 10 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 0.58 USD</td>
+    </tr><tr>
+      <td>🇲🇽 25 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 1.46 USD</td>
+    </tr><tr>
+      <td>🇲🇽 50 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 2.92 USD</td>
+    </tr><tr>
+      <td>🇲🇽 100 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 5.83 USD</td>
+    </tr><tr>
+      <td>🇲🇽 250 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 14.58 USD</td>
+    </tr><tr>
+      <td>🇲🇽 500 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 29.15 USD</td>
+    </tr><tr>
+      <td>🇲🇽 1,000 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 58.31 USD</td>
+    </tr><tr>
+      <td>🇲🇽 5,000 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 291.55 USD</td>
+    </tr><tr>
+      <td>🇲🇽 10,000 MXN</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇺🇸 583.09 USD</td>
+    </tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>About US Dollar and Mexican Peso</h2>
+    <p>The <strong>US Dollar (USD)</strong> is the world's primary reserve currency and is used for most international trade transactions.</p>
+    <p>The <strong>Mexican Peso (MXN)</strong> is actively traded on the global foreign exchange market.</p>
+    <div class="formula-box"><code>USD to MXN = Amount × 17.150000</code></div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="margin-bottom:20px">Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-question">What is 1 USD in MXN?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Based on reference rates, 1 USD (US Dollar) = 17.1500 MXN (Mexican Peso). 
+      Exchange rates fluctuate constantly — check with your bank for live rates.</div></div></div>
+    <div class="faq-item"><button class="faq-question">How do I convert USD to MXN?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Simply multiply the USD amount by the current exchange rate. 
+      For example: 500 USD × 17.1500 = 8575.00 MXN.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Does the exchange rate change?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Exchange rates fluctuate based on economic data, central bank decisions, geopolitical events, and market sentiment. Rates shown here are indicative reference values.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Is USD/MXN a major currency pair?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">USD/MXN is considered a minor or exotic currency pair. These pairs have lower trading volume than major pairs but are still widely exchanged.</div></div></div>
+  </div>
+
+  <div class="related-section">
+    <h2>Other USD Conversions</h2>
+    <div class="related-grid"><a href="usd-to-eur.html" class="related-link">
+      <span class="r-icon">🇪🇺</span>USD to EUR
+    </a><a href="usd-to-gbp.html" class="related-link">
+      <span class="r-icon">🇬🇧</span>USD to GBP
+    </a><a href="usd-to-jpy.html" class="related-link">
+      <span class="r-icon">🇯🇵</span>USD to JPY
+    </a><a href="usd-to-cad.html" class="related-link">
+      <span class="r-icon">🇨🇦</span>USD to CAD
+    </a><a href="usd-to-aud.html" class="related-link">
+      <span class="r-icon">🇦🇺</span>USD to AUD
+    </a><a href="usd-to-chf.html" class="related-link">
+      <span class="r-icon">🇨🇭</span>USD to CHF
+    </a><a href="usd-to-cny.html" class="related-link">
+      <span class="r-icon">🇨🇳</span>USD to CNY
+    </a><a href="usd-to-inr.html" class="related-link">
+      <span class="r-icon">🇮🇳</span>USD to INR
+    </a></div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+      <p>Free currency exchange calculators with indicative reference rates. Updated periodically.</p>
+    </div>
+    <div class="footer-col"><h4>Popular Pairs</h4><ul><li><a href="usd-to-eur.html">USD to EUR</a></li><li><a href="usd-to-gbp.html">USD to GBP</a></li><li><a href="usd-to-jpy.html">USD to JPY</a></li><li><a href="usd-to-cad.html">USD to CAD</a></li><li><a href="usd-to-aud.html">USD to AUD</a></li><li><a href="usd-to-inr.html">USD to INR</a></li><li><a href="usd-to-chf.html">USD to CHF</a></li><li><a href="usd-to-cny.html">USD to CNY</a></li><li><a href="eur-to-gbp.html">EUR to GBP</a></li><li><a href="eur-to-usd.html">EUR to USD</a></li></ul></div>
+    <div class="footer-col"><h4>Finance Tools</h4><ul>
+      <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+      <li><a href="compound-interest.html">Compound Interest</a></li>
+      <li><a href="roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="salary-calculator.html">Salary Calculator</a></li>
+      <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Converters</h4><ul>
+      <li><a href="currency-exchange.html">Currency Exchange</a></li>
+      <li><a href="temperature-converter.html">Temperature</a></li>
+      <li><a href="length-converter.html">Length</a></li>
+      <li><a href="weight-converter.html">Weight</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 CalcSmart. Reference rates for informational purposes only.</div>
+</footer>
+<script>document.querySelectorAll('.faq-question').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));</script>
+<script>
+const R=17.1500000000, INV=0.0583090379;
+function calc(){
+  const v=parseFloat(document.getElementById('fromAmt').value)||0;
+  document.getElementById('toAmt').value=(v*R).toFixed(4);
+}
+function calcInv(){
+  const v=parseFloat(document.getElementById('fromAmt2').value)||0;
+  document.getElementById('toAmt2').value=(v*INV).toFixed(4);
+}
+calc(); calcInv();
+</script>
+</body>
+</html>

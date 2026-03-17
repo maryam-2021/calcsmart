@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Days Calculator – Free Online Calculator | CalcSmart</title>
+<meta name="description" content="Count business days between two dates, excluding weekends. Use our free business days calculator online — instant results, no sign-up.">
+<meta property="og:title" content="Business Days Calculator – Free Online Calculator">
+<meta property="og:description" content="Count business days between two dates, excluding weekends.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcsmart.com/business-days-calculator.html">
+<link rel="canonical" href="https://calcsmart.com/business-days-calculator.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="site-wrapper">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">🧮</div>
+        <div class="logo-text">
+          <h1>50 PLUS FINANCIAL<br>CALCULATORS</h1>
+          <p>Your future, calculated.</p>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="finance-calculators.html">Finance</a></li>
+        <li><a href="health-calculators.html">Health</a></li>
+        <li><a href="math-calculators.html">Math</a></li>
+        <li><a href="guides.html">Guides</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <div class="search-pill">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search calculators..." id="globalSearch">
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle light/dark theme"></button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="live-data">
+      <div class="dot"></div> Live Data
+    </div>
+  </div>
+</nav>
+<div class="site-wrapper">
+  <div class="calc-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="time-calculators.html">Time Calculators</a>
+      <span>›</span>
+      <span class="current">Business Days Calculator</span>
+    </div>
+
+    <div class="calc-header">
+      <h1>🗓️ Business Days Calculator</h1>
+      <p>Count business days between two dates, excluding weekends.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-form"><div class="form-group">
+      <label for="start">Starting Date</label>
+      <input type="date" id="start" placeholder="undefined" value="2026-03-17">
+    </div><div class="form-group">
+      <label for="days">Business Days to Add</label>
+      <input type="number" id="days" placeholder="10" >
+    </div></div>
+      <div class="calc-actions">
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">⚡ Calculate Future Date</button>
+        <button class="calc-btn-secondary" onclick="resetCalc()">↺ Reset</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-value" id="resultValue"></div>
+        <div class="result-details" id="resultDetails"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>What is a Business Days Calculator?</h2>
+      <p>The Business Days Calculator helps you determine project deadlines or delivery dates by counting only standard workdays (Monday through Friday), skipping weekends.</p>
+      <div class="formula-box"><code>Result Date = Start Date + N Workdays (Mon-Fri)</code></div>
+    </div>
+
+    
+    <div class="content-section" style="border-top: 1px solid var(--border-color); padding-top: 40px; margin-top: 40px;">
+      <h2 style="margin-bottom: 24px;">📝 In-Depth Guide: Mastering Business Days Calculator</h2>
+      <div class="blog-preview-content" style="line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+        
+      <p>In global commerce, project timelines are almost always measured in "Business Days." If a supplier promises delivery in "7 to 10 business days," they are actually promising delivery in roughly two calendar weeks.</p>
+      <h4>Why Skip Weekends?</h4>
+      <p>Most corporate, banking, and shipping operations cease or significantly slow down over the weekend. Calculating a deadline based on calendar days alone can lead to missed targets and disappointed clients. Our tool ensures your scheduling matches professional reality.</p>
+      <h4>Holidays: The X-Factor</h4>
+      <p>While weekends are universal across most of the world, public holidays differ by country, state, and even city. This calculator provides the standard Monday-Friday filter, but remember to manually account for any bank holidays or national observations that might fall within your timeline.</p>
+    
+      </div>
+    </div>
+    
+
+    <div class="content-section">
+      <h2>Example</h2>
+      <div class="example-box">
+        <div class="example-title">📌 Example Calculation</div>
+        <p>Starting on a Friday and adding 2 business days will result in the following Tuesday.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="content-section" style="margin-bottom:20px">Frequently Asked Questions</h2>
+      
+    <div class="faq-item">
+      <button class="faq-question">Does this calculate the number of days between two dates?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">This version adds days to a start point. Use "Days Between Dates" for simple counting.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Are Saturdays considered business days?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Generally, no. In the standard 5-day work week, only Monday through Friday are business days.</div></div>
+    </div>
+    </div>
+
+    <div class="related-section">
+      <h2>Related Calculators</h2>
+      <div class="related-grid"><a href="age-calculator.html" class="related-link"><span class="r-icon">🎂</span>Age Calculator</a><a href="date-calculator.html" class="related-link"><span class="r-icon">📅</span>Date Calculator</a><a href="time-zone-converter.html" class="related-link"><span class="r-icon">🌍</span>Time Zone Converter</a><a href="days-between-dates.html" class="related-link"><span class="r-icon">📆</span>Days Between Dates</a><a href="hours-calculator.html" class="related-link"><span class="r-icon">⌚</span>Hours Calculator</a><a href="countdown-calculator.html" class="related-link"><span class="r-icon">⏳</span>Countdown Calculator</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-wrapper">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="finance-calculators.html">Finance</a></li>
+          <li><a href="finance-calculators.html">Investment</a></li>
+          <li><a href="health-calculators.html">Health</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="guides.html">Articles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+// Theme toggle
+(function(){
+  const t=document.getElementById('themeToggle');
+  if(!t)return;
+  const saved=localStorage.getItem('theme');
+  if(saved==='light'){document.body.classList.add('light-mode');t.classList.add('light');}
+  t.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    t.classList.toggle('light');
+    localStorage.setItem('theme',document.body.classList.contains('light-mode')?'light':'dark');
+  });
+})();
+// Hamburger
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',()=>{
+    nav.style.display=nav.style.display==='flex'?'none':'flex';
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='70px';
+    nav.style.right='16px';
+    nav.style.background='rgba(21,24,33,0.95)';
+    nav.style.backdropFilter='blur(20px)';
+    nav.style.padding='16px 24px';
+    nav.style.borderRadius='12px';
+    nav.style.border='1px solid rgba(255,255,255,0.08)';
+    nav.style.boxShadow='0 12px 40px rgba(0,0,0,0.4)';
+    nav.style.zIndex='200';
+    nav.style.gap='12px';
+  });
+})();
+// Search filter
+(function(){
+  const s=document.getElementById('globalSearch');
+  if(!s)return;
+  s.addEventListener('input',()=>{
+    const q=s.value.toLowerCase();
+    // Filter tool cards, side cards, AND category tiles
+    document.querySelectorAll('.tool-card, .side-card, .cat-tile').forEach(c=>{
+      const text=c.innerText.toLowerCase();
+      c.style.display=text.includes(q)?'flex':'none';
+    });
+  });
+})();
+</script>
+<script>
+function v(id){return document.getElementById(id).value;}
+function showResult(label, value, details){
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultValue').textContent = value;
+  document.getElementById('resultDetails').innerHTML = details.map(d=>'<span>'+d+'</span>').join('');
+  const r = document.getElementById('calcResult');
+  r.classList.add('visible');
+}
+function resetCalc(){
+  document.querySelectorAll('.calc-form input').forEach(i=>{if(i.type!=='date')i.value='';});
+  document.getElementById('calcResult').classList.remove('visible');
+}
+function calculate(){
+  const startInput = v('start');
+  let s = new Date(startInput);
+  let count = parseInt(v('days'));
+  if(isNaN(s) || isNaN(count)) return alert('Please fill all fields');
+  
+  let i = 0;
+  let history = [];
+  while(i < Math.abs(count)) {
+    s.setDate(s.getDate() + (count > 0 ? 1 : -1));
+    if(s.getDay() !== 0 && s.getDay() !== 6) {
+      i++;
+    }
+  }
+  showResult('Business Date', s.toLocaleDateString(undefined, {weekday:'long', year:'numeric', month:'long', day:'numeric'}), [
+    'Total Calendar Days: '+Math.round(Math.abs(s - new Date(startInput))/86400000),
+    'Excludes: Saturdays & Sundays',
+    'Status: Public holidays not included'
+  ]);
+}
+</script>
+</body>
+</html>

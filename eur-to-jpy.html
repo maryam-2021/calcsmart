@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUR to JPY – Euro to Japanese Yen Converter | CalcSmart</title>
+<meta name="description" content="Convert Euro to Japanese Yen with our free EUR/JPY currency calculator. 1 EUR = 161.7965 JPY. Instant conversion with reference exchange rates.">
+<link rel="stylesheet" href="styles.css">
+<style>
+.rate-table{width:100%;border-collapse:collapse}
+.rate-table th{padding:12px 16px;text-align:left;font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-color)}
+.rate-table td{padding:10px 16px;font-size:.9rem;color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.03)}
+.rate-table tr:hover td{background:rgba(255,255,255,0.02)}
+.pair-hero{display:flex;align-items:center;justify-content:center;gap:24px;padding:32px;background:rgba(108,92,231,0.07);border:1px solid rgba(108,92,231,0.15);border-radius:var(--radius-xl);margin-bottom:28px;flex-wrap:wrap}
+.pair-hero .currency-flag{font-size:3.5rem;line-height:1}
+.pair-hero .arrow{font-size:2rem;color:var(--accent-2)}
+.pair-hero .rate-big{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--text-primary);text-align:center}
+.pair-hero .rate-label{font-size:.8rem;color:var(--text-muted);text-align:center}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="finance-calculators.html">Finance</a></li>
+      <li><a href="health-calculators.html">Health</a></li>
+      <li><a href="math-calculators.html">Math</a></li>
+      <li><a href="time-calculators.html">Time</a></li>
+      <li><a href="conversion-calculators.html">Conversion</a></li>
+      <li><a href="currency-exchange.html" class="active">Currency</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="site-wrapper">
+<div class="calc-page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="currency-exchange.html">Currency Exchange</a><span>›</span>
+    <span class="current">EUR to JPY</span>
+  </div>
+
+  <div class="calc-header">
+    <h1>🇪🇺 EUR to 🇯🇵 JPY Converter</h1>
+    <p>Convert Euro (EUR) to Japanese Yen (JPY) instantly. Free currency exchange calculator with indicative reference rates.</p>
+  </div>
+
+  <div class="pair-hero">
+    <div style="text-align:center">
+      <div class="currency-flag">🇪🇺</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">EUR</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Euro</div>
+    </div>
+    <div class="arrow">→</div>
+    <div style="text-align:center">
+      <div class="rate-big">161.7965</div>
+      <div class="rate-label">1 EUR = 161.7965 JPY</div>
+    </div>
+    <div class="arrow" style="transform:rotate(180deg)">→</div>
+    <div style="text-align:center">
+      <div class="currency-flag">🇯🇵</div>
+      <div style="font-size:.9rem;font-weight:700;margin-top:6px">JPY</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Japanese Yen</div>
+    </div>
+  </div>
+
+  <div class="calc-widget">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt">🇪🇺 Amount in EUR</label>
+        <input type="number" id="fromAmt" value="100" placeholder="Enter EUR amount" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt">🇯🇵 Amount in JPY</label>
+        <input type="number" id="toAmt" placeholder="Result in JPY" readonly style="background:rgba(108,92,231,0.06);border-color:rgba(108,92,231,0.2)">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="form-group">
+        <label for="fromAmt2">🇯🇵 Amount in JPY</label>
+        <input type="number" id="fromAmt2" value="100" placeholder="Enter JPY amount" oninput="calcInv()">
+      </div>
+      <div class="form-group">
+        <label for="toAmt2">🇪🇺 Amount in EUR</label>
+        <input type="number" id="toAmt2" placeholder="Result in EUR" readonly style="background:rgba(0,206,201,0.06);border-color:rgba(0,206,201,0.2)">
+      </div>
+    </div>
+    <div class="calc-result visible">
+      <div class="result-label">REFERENCE EXCHANGE RATES</div>
+      <div class="result-value" style="font-size:1.3rem">1 EUR = 161.796537 JPY</div>
+      <div class="result-details">
+        <span>1 JPY = 0.006181 EUR</span>
+        <span style="color:var(--text-muted);font-size:.8rem">⚠ Indicative reference rates — not for live trading</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>EUR to JPY Quick Reference Table</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>EUR</th><th>JPY</th></tr></thead>
+          <tbody><tr>
+      <td>🇪🇺 1 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 161.80 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 5 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 808.98 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 10 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 1617.97 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 25 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 4044.91 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 50 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 8089.83 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 100 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 16179.65 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 250 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 40449.13 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 500 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 80898.27 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 1,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 161796.54 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 5,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 808982.68 JPY</td>
+    </tr><tr>
+      <td>🇪🇺 10,000 EUR</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-3)">🇯🇵 1617965.37 JPY</td>
+    </tr></tbody>
+        </table>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);overflow:hidden">
+        <table class="rate-table">
+          <thead><tr><th>JPY</th><th>EUR</th></tr></thead>
+          <tbody><tr>
+      <td>🇯🇵 1 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.01 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 5 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.03 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 10 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.06 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 25 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.15 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 50 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.31 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 100 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 0.62 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 250 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 1.55 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 500 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 3.09 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 1,000 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 6.18 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 5,000 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 30.90 EUR</td>
+    </tr><tr>
+      <td>🇯🇵 10,000 JPY</td>
+      <td style="font-family:'JetBrains Mono',monospace;color:var(--accent-2)">🇪🇺 61.81 EUR</td>
+    </tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>About Euro and Japanese Yen</h2>
+    <p>The <strong>Euro (EUR)</strong> is the official currency of the Eurozone, used by 20 member states of the European Union.</p>
+    <p>The <strong>Japanese Yen (JPY)</strong> is a major reserve currency and is often used as a safe-haven asset during periods of global uncertainty.</p>
+    <div class="formula-box"><code>EUR to JPY = Amount × 161.796537</code></div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="margin-bottom:20px">Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-question">What is 1 EUR in JPY?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Based on reference rates, 1 EUR (Euro) = 161.7965 JPY (Japanese Yen). 
+      Exchange rates fluctuate constantly — check with your bank for live rates.</div></div></div>
+    <div class="faq-item"><button class="faq-question">How do I convert EUR to JPY?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Simply multiply the EUR amount by the current exchange rate. 
+      For example: 500 EUR × 161.7965 = 80898.27 JPY.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Does the exchange rate change?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. Exchange rates fluctuate based on economic data, central bank decisions, geopolitical events, and market sentiment. Rates shown here are indicative reference values.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Is EUR/JPY a major currency pair?<span class="icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes, EUR/JPY is considered a major forex pair. Major pairs include USD, EUR, GBP, JPY, CHF, CAD, and AUD. They are the most liquid and widely traded.</div></div></div>
+  </div>
+
+  <div class="related-section">
+    <h2>Other EUR Conversions</h2>
+    <div class="related-grid"><a href="eur-to-usd.html" class="related-link">
+      <span class="r-icon">🇺🇸</span>EUR to USD
+    </a><a href="eur-to-gbp.html" class="related-link">
+      <span class="r-icon">🇬🇧</span>EUR to GBP
+    </a><a href="eur-to-cad.html" class="related-link">
+      <span class="r-icon">🇨🇦</span>EUR to CAD
+    </a><a href="eur-to-aud.html" class="related-link">
+      <span class="r-icon">🇦🇺</span>EUR to AUD
+    </a><a href="eur-to-chf.html" class="related-link">
+      <span class="r-icon">🇨🇭</span>EUR to CHF
+    </a><a href="eur-to-cny.html" class="related-link">
+      <span class="r-icon">🇨🇳</span>EUR to CNY
+    </a><a href="eur-to-inr.html" class="related-link">
+      <span class="r-icon">🇮🇳</span>EUR to INR
+    </a><a href="eur-to-mxn.html" class="related-link">
+      <span class="r-icon">🇲🇽</span>EUR to MXN
+    </a></div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-icon">🧮</span>CalcSmart</a>
+      <p>Free currency exchange calculators with indicative reference rates. Updated periodically.</p>
+    </div>
+    <div class="footer-col"><h4>Popular Pairs</h4><ul><li><a href="usd-to-eur.html">USD to EUR</a></li><li><a href="usd-to-gbp.html">USD to GBP</a></li><li><a href="usd-to-jpy.html">USD to JPY</a></li><li><a href="usd-to-cad.html">USD to CAD</a></li><li><a href="usd-to-aud.html">USD to AUD</a></li><li><a href="usd-to-inr.html">USD to INR</a></li><li><a href="usd-to-chf.html">USD to CHF</a></li><li><a href="usd-to-cny.html">USD to CNY</a></li><li><a href="eur-to-gbp.html">EUR to GBP</a></li><li><a href="eur-to-usd.html">EUR to USD</a></li></ul></div>
+    <div class="footer-col"><h4>Finance Tools</h4><ul>
+      <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+      <li><a href="compound-interest.html">Compound Interest</a></li>
+      <li><a href="roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="salary-calculator.html">Salary Calculator</a></li>
+      <li><a href="tip-calculator.html">Tip Calculator</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Converters</h4><ul>
+      <li><a href="currency-exchange.html">Currency Exchange</a></li>
+      <li><a href="temperature-converter.html">Temperature</a></li>
+      <li><a href="length-converter.html">Length</a></li>
+      <li><a href="weight-converter.html">Weight</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 CalcSmart. Reference rates for informational purposes only.</div>
+</footer>
+<script>document.querySelectorAll('.faq-question').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));</script>
+<script>
+const R=161.7965367965, INV=0.0061806020;
+function calc(){
+  const v=parseFloat(document.getElementById('fromAmt').value)||0;
+  document.getElementById('toAmt').value=(v*R).toFixed(4);
+}
+function calcInv(){
+  const v=parseFloat(document.getElementById('fromAmt2').value)||0;
+  document.getElementById('toAmt2').value=(v*INV).toFixed(4);
+}
+calc(); calcInv();
+</script>
+</body>
+</html>
