@@ -1,8 +1,8 @@
 import os
 
 directory = '.'
-old_string = 'radiant-cendol-ef5153.netlify.app'
-new_string = 'all-in-one-calculators.netlify.app'
+old_string = 'all-in-one-calculators.netlify.app'
+new_string = 'all-in-one-calculators.vercel.app'
 extensions_to_check = ('.html', '.js', '.xml')
 
 count = 0
